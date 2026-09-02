@@ -43,11 +43,16 @@ python3 -m http.server 8000
 
 ## Before it goes live
 
-1. **Set the real domain.** The site currently assumes `https://peaklogisticsservices.com`.
-   Search and replace that string across `index.html`, `services.html`, `about.html`,
-   `contact.html`, `404.html`, `robots.txt` and `sitemap.xml`. It affects the canonical
-   URLs, the social-share cards and the sitemap only — nothing on the page breaks if it
-   is left as-is, but search engines and link previews will point at the wrong host.
+1. **Point the domain at the site.** The site is set up for
+   `https://peaklogisticsservices.com` — that host appears in the canonical URLs, the
+   social-share cards, `robots.txt` and `sitemap.xml`. Register the domain if you have
+   not already, then follow *Pointing peaklogisticsservices.com at the site* under
+   **Publishing** below.
+
+   If the domain ever changes, search and replace `peaklogisticsservices.com` across
+   `index.html`, `services.html`, `about.html`, `contact.html`, `404.html`,
+   `robots.txt` and `sitemap.xml`. Nothing on the page breaks if it is wrong, but
+   search engines and link previews will point at the wrong host.
 
 2. **Decide how enquiries are received.** The contact form is currently *client-side
    only*: it validates the fields and opens the visitor's own email app with everything
@@ -80,6 +85,34 @@ or ordinary cPanel hosting via FTP.
 
 For **GitHub Pages**: repository *Settings → Pages*, set the source to this branch and
 the folder to `/ (root)`. No workflow or configuration file is needed.
+
+### Pointing peaklogisticsservices.com at the site
+
+The site's canonical URLs, share cards and sitemap are all set to
+`https://peaklogisticsservices.com` (no `www`), so serve it from that exact host — if
+you also want `www.peaklogisticsservices.com` to work, redirect it to the bare domain
+rather than serving both, or search engines will treat them as two competing copies.
+
+On **GitHub Pages** a custom domain needs two things:
+
+1. At your domain registrar, create these DNS records for the bare domain:
+
+   ```
+   A     @   185.199.108.153
+   A     @   185.199.109.153
+   A     @   185.199.110.153
+   A     @   185.199.111.153
+   CNAME www tolbertinnovation-debug.github.io.
+   ```
+
+2. In the repository, *Settings → Pages → Custom domain*, enter
+   `peaklogisticsservices.com` and save. GitHub commits a `CNAME` file to the branch
+   for you — do not add one by hand. Once DNS resolves, tick **Enforce HTTPS**; the
+   certificate can take up to an hour to issue.
+
+On **Netlify, Cloudflare Pages or cPanel** hosting, add the domain in that host's own
+dashboard instead — the `CNAME` file is a GitHub Pages mechanism and is ignored
+elsewhere.
 
 ## Editing content
 
