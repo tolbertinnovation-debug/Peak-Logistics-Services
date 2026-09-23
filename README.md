@@ -1,87 +1,96 @@
-# Peak Logistics Services — company website
+# Peak Logistics Services — website
 
-A static marketing website for **Peak Logistics Services**, a full-service logistics
-company based opposite the Freeport of Monrovia, Bushrod Island, Monrovia, Liberia.
-
-All copy, services, mission, vision, values and contact details come from the company
-profile document; the palette and imagery are taken from the company's own logo, banner
-and flyer artwork.
+The website for **Peak Logistics Services**, a full-service logistics company based
+opposite the Freeport of Monrovia, Bushrod Island, Monrovia, Liberia.
 
 > Your Cargo, Our Commitment. Reaching New Heights in Liberia.
 
+All copy comes from the company profile. The greens and golds are sampled from the
+company's own logo and banner, and the photography is taken from the company flyer.
+No figures, clients or claims have been invented.
+
 ## Pages
 
-| File | Purpose |
+| Page | What's on it |
 | --- | --- |
-| `index.html` | Home — hero, service overview, strategic advantage, mission/vision/values, target market |
-| `services.html` | The six service lines in detail, the four transport modes, and how a shipment is handled |
-| `about.html` | Introduction, mission, vision, core values, target market, strategic advantage, looking ahead |
-| `contact.html` | Contact details, enquiry form, and a map of the Bushrod Island area |
+| `index.html` | Hero with a shipment walkthrough, interactive services explorer, world route map converging on Monrovia, the scroll-driven journey road, customs & documentation, why Peak, who we serve, mission & vision, FAQ |
+| `services.html` | Each of the six service lines in full, documentation, transport modes, how a shipment is handled |
+| `about.html` | Introduction, mission, vision, core values, strategic advantage, target market, looking ahead, company profile download |
+| `contact.html` | Four-step quote request (sent by WhatsApp or email), direct contact details, map |
 | `404.html` | Not-found page |
 
-## Running it locally
+## Previewing it
 
-There is **no build step and no dependencies** — it is plain HTML, CSS and one small
-JavaScript file. Open `index.html` in a browser, or serve the folder:
+Open `index.html` in a browser, or serve the folder:
 
 ```sh
-python3 -m http.server 8000
-# then visit http://localhost:8000
+python3 -m http.server 8000     # then visit http://localhost:8000
 ```
 
-## Layout
+## Changing the content
 
+The pages are **generated** — edit the source, not the HTML:
+
+| To change… | Edit |
+| --- | --- |
+| Phone, email, address, social links | the constants at the top of `tools/common.py` |
+| Services, FAQ, values, mission, segments | the lists in `tools/common.py` |
+| Header, footer, calls to action | the functions in `tools/common.py` |
+| Page layouts and sections | `tools/build.py` |
+| Colours, type, spacing | the `:root` block at the top of `assets/css/style.css` |
+
+Then rebuild:
+
+```sh
+python3 tools/build.py
 ```
-├── index.html, services.html, about.html, contact.html, 404.html
-├── assets/
-│   ├── css/style.css        # all styling; brand tokens are the :root block at the top
-│   ├── js/main.js           # nav, sticky header, scroll reveals, enquiry form
-│   ├── img/                 # logo mark, favicons, photography, brand collateral
-│   └── docs/                # company profile PDF, linked from the About page
-├── favicon.ico, robots.txt, sitemap.xml
-```
+
+It needs only Python 3 — no packages. Commit the regenerated `.html` files along with
+your change. **Edits made directly to the HTML are overwritten on the next build.**
+
+The dot-matrix world map is generated separately and rarely needs touching. To change
+the trade lanes shown on it: `cd tools/map && npm install && node generate-map.mjs`,
+then run the build.
 
 ## Before it goes live
 
 1. **Point the domain at the site.** The site is set up for
-   `https://peaklogisticsservices.com` — that host appears in the canonical URLs, the
-   social-share cards, `robots.txt` and `sitemap.xml`. Register the domain if you have
-   not already, then follow *Pointing peaklogisticsservices.com at the site* under
-   **Publishing** below.
+   `https://peaklogisticsservices.com` — see *Pointing peaklogisticsservices.com at the
+   site* below. To use a different domain, change `SITE` in `tools/common.py`, the URLs
+   in `robots.txt` and `sitemap.xml`, and rebuild.
 
-   If the domain ever changes, search and replace `peaklogisticsservices.com` across
-   `index.html`, `services.html`, `about.html`, `contact.html`, `404.html`,
-   `robots.txt` and `sitemap.xml`. Nothing on the page breaks if it is wrong, but
-   search engines and link previews will point at the wrong host.
+2. **Decide how quote requests arrive.** The site has no server, so the quote form
+   writes the request out and hands it to the visitor's **WhatsApp** or **email app**,
+   addressed to the company — the visitor just presses send. Nothing is stored on the
+   site. With JavaScript switched off it falls back to a plain email form.
+   To capture submissions on a server instead, point `#quote-form` at a form service
+   such as [Formspree](https://formspree.io) and remove the send buttons' handler at
+   the end of `assets/js/main.js`.
 
-2. **Decide how enquiries are received.** The contact form is currently *client-side
-   only*: it validates the fields and opens the visitor's own email app with everything
-   filled in, addressed to `peaklogisticsservices@gmail.com`. Nothing is stored on the
-   site, and it needs no server. It also means a visitor with no mail app configured
-   will fall back to the phone and WhatsApp links shown beneath the form.
+3. **Add real photographs when you can.** The two photos on the site come from the
+   company flyer and are illustrative. Photos of your own trucks, warehouse, team and
+   the office will build more trust than anything else on the page. Replace
+   `assets/img/hero-port.jpg` (landscape, at least 1200px wide) and
+   `assets/img/vessel-quayside.jpg` (portrait, 4:5).
 
-   To collect submissions properly instead, point the form at a form service — for
-   example [Formspree](https://formspree.io) or Netlify Forms — by giving
-   `#enquiry-form` an `action` and `method="POST"` and deleting the submit handler at
-   the bottom of `assets/js/main.js`. The field names (`name`, `company`, `email`,
-   `phone`, `service`, `route`, `message`) are already sensible.
+4. **Add proof as you gather it.** Years in operation, shipments handled, client
+   testimonials, partner logos and licences were not in the company profile, so the site
+   makes no such claims. Each would strengthen it — add them to `tools/common.py`.
 
-3. **Add opening hours.** These were not in the company profile, so none are published.
-   If you want them, add another `.contact-item` block to `contact.html`.
+5. **Opening hours** were not in the profile either, so none are published.
 
-4. **Check the map pin.** The embedded map is centred on the Freeport of Monrovia area
-   and is labelled as approximate. For an exact pin, replace the `marker=` coordinates
-   in the `iframe` on `contact.html` with the office's real latitude and longitude.
+6. **Map pin.** The contact-page map marks the Freeport of Monrovia and is labelled
+   as approximate. For the exact office, change the `marker=` coordinates in
+   `tools/build.py` and rebuild.
 
-5. **Confirm the social links.** The footer links to
-   `facebook.com/peaklogisticsservices` and `instagram.com/peaklogisticsservices`, based
-   on the `@peaklogisticsservices` handle in the company profile. Correct them if the
-   real page URLs differ.
+7. **Social links** point to `facebook.com/peaklogisticsservices` and
+   `instagram.com/peaklogisticsservices`, based on the `@peaklogisticsservices` handle.
+   Correct `FB` and `IG` in `tools/common.py` if the real pages differ.
 
 ## Publishing
 
-Any static host will serve this folder as-is — GitHub Pages, Netlify, Cloudflare Pages,
-or ordinary cPanel hosting via FTP.
+Any static host serves this folder as-is — GitHub Pages, Netlify, Cloudflare Pages, or
+ordinary cPanel hosting over FTP.
 
 For **GitHub Pages**: repository *Settings → Pages*, set the source to this branch and
 the folder to `/ (root)`. No workflow or configuration file is needed.
@@ -114,27 +123,46 @@ On **Netlify, Cloudflare Pages or cPanel** hosting, add the domain in that host'
 dashboard instead — the `CNAME` file is a GitHub Pages mechanism and is ignored
 elsewhere.
 
-## Editing content
+## Layout
 
-- **Text and services** live directly in the HTML. The six service cards use the same
-  markup on `index.html` and `services.html`, so edit both if a service changes.
-- **Navigation and footer** are repeated in each page (this keeps the site dependency
-  free). Changing a nav link means changing it in all five files.
-- **Colours, spacing and type** are CSS custom properties in the `:root` block at the
-  top of `assets/css/style.css`. The greens and golds were sampled from the company
-  logo and banner.
+```
+├── index.html, services.html, about.html, contact.html, 404.html   (generated)
+├── assets/
+│   ├── css/style.css       design system — tokens at the top
+│   ├── js/main.js          menu, services explorer, route map, journey road, quote form
+│   ├── fonts/              Archivo and JetBrains Mono, self-hosted (SIL OFL)
+│   ├── img/                logo, photography, world map, icons
+│   └── docs/               company profile PDF
+├── tools/
+│   ├── common.py           content and shared page parts
+│   ├── build.py            page layouts; run this to rebuild
+│   ├── map-points.json     where each trade lane starts and ends
+│   └── map/                optional world-map generator (Node)
+├── favicon.ico, robots.txt, sitemap.xml
+```
 
-## Notes on the build
+## How it's built
 
-- **Accessibility** — skip link, one `<h1>` per page with no heading-level jumps,
-  labelled form fields, visible focus rings, and colour contrast meeting WCAG AA. Gold
-  is used as a decorative fill; gold *text* on light backgrounds uses the darker
-  `--gold-ink` so it stays legible.
-- **Works without JavaScript** — the scroll-reveal animation is scoped to a `.js` class
-  so content is never hidden if scripts fail to load. Motion is disabled for visitors
-  who set `prefers-reduced-motion`.
-- **Responsive** — verified for horizontal overflow from 320px to 1920px.
-- **Manrope** is loaded from Google Fonts with `display=swap` and falls back to the
-  system UI font, so text renders immediately on a slow connection. To remove the
-  third-party request entirely, delete the two `fonts.` `<link>` tags from each page's
-  `<head>`; the fallback stack takes over.
+- **Fast on mobile data.** The whole homepage is about 570 KB across 10 requests
+  before compression. Fonts are self-hosted, so there are no third-party requests
+  except the map on the contact page.
+- **Works without JavaScript.** Every page reads completely with scripts off: the
+  services explorer shows all six services, and the quote form becomes a single email
+  form. Animations are disabled for visitors who ask for reduced motion.
+- **Accessible.** One `<h1>` per page with no skipped heading levels, labelled form
+  fields, keyboard-operable services tabs and menu, visible focus, a skip link, and
+  colour contrast meeting WCAG AA throughout.
+- **Responsive** from 320px to wide desktop, checked for horizontal overflow at eleven
+  widths. On phones the route map zooms into the Atlantic so its labels stay readable.
+- **Search-ready.** Structured data for the business, its services, the FAQ and
+  breadcrumbs; canonical URLs; sitemap; social share card.
+
+## Credits
+
+- Typefaces: [Archivo](https://github.com/Omnibus-Type/Archivo) and
+  [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), SIL Open Font License —
+  see `assets/fonts/`.
+- World map: [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via
+  `world-atlas`.
+- Contact-page map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright)
+  contributors.

@@ -1,0 +1,12 @@
+{
+  "name": "peak-logistics-map",
+  "private": true,
+  "type": "module",
+  "description": "Regenerates the dot-matrix world map and trade-lane anchor points. Optional — only needed to change the map.",
+  "scripts": { "build": "node generate-map.mjs" },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}
