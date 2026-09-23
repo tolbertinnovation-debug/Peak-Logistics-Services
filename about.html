@@ -123,7 +123,8 @@
 </header>
 
 <main id="main">
-  <section class="phero">
+  <section class="phero phero--photo">
+    <div class="phero__bg" style="--pos:70% 55%" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/photos/highway-truck-800.webp 800w, assets/img/photos/highway-truck-1400.webp 1400w" sizes="100vw"><img src="assets/img/photos/highway-truck-800.jpg" srcset="assets/img/photos/highway-truck-800.jpg 800w, assets/img/photos/highway-truck-1400.jpg 1400w" sizes="100vw" width="1400" height="788" alt="" fetchpriority="high" decoding="async"></picture></div>
     <div class="wrap">
       <ol class="crumbs"><li><a href="index.html">Home</a></li><li aria-current="page">About</li></ol>
       <h1 class="h1">Reaching new heights in Liberia.</h1>
@@ -143,9 +144,9 @@
           <a class="btn btn--line" href="services.html">Our services <svg class="arr" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
         </div>
       </div>
-      <div class="frame rv" style="max-width:500px;margin-inline:auto">
-        <img src="assets/img/company-flyer.jpg" width="820" height="1160" loading="lazy" decoding="async"
-             alt="Peak Logistics Services company flyer: freight forwarding, transportation, customs clearing and supply chain management.">
+      <div class="frame frame--tall rv">
+        <picture><source type="image/webp" srcset="assets/img/photos/warehouse-team-tall-600.webp 600w, assets/img/photos/warehouse-team-tall-753.webp 753w" sizes="(min-width: 960px) 44vw, 100vw"><img src="assets/img/photos/warehouse-team-tall-600.jpg" srcset="assets/img/photos/warehouse-team-tall-600.jpg 600w, assets/img/photos/warehouse-team-tall-753.jpg 753w" sizes="(min-width: 960px) 44vw, 100vw" width="753" height="941" alt="Three warehouse staff in hard hats review a consignment on a tablet and clipboard beside racked pallets." loading="lazy" decoding="async"></picture>
+        <p class="frame__cap">Freight · Customs · Warehousing <span>Monrovia</span></p>
       </div>
     </div>
   </section>
@@ -194,7 +195,7 @@
         <div class="rv" style="--rd:.16s"><h3>Continuous improvement</h3><p>Finding better ways to move cargo — faster, at lower cost and with fewer surprises.</p></div>
       </div>
       <div class="profile-card rv" style="margin-top:clamp(3rem,6vw,4.5rem)">
-        <span class="profile-card__i" aria-hidden="true">PDF</span>
+        <img class="profile-card__thumb" src="assets/img/company-flyer.jpg" width="820" height="1160" alt="" loading="lazy" decoding="async">
         <div><h3>Company profile</h3><p>Services, mission, values and contact details in one document — ready to share with your team.</p></div>
         <a class="btn btn--green" href="assets/docs/Peak-Logistics-Services-Company-Profile.pdf"><svg aria-hidden="true"><use href="#i-download"></use></svg> Download</a>
       </div>

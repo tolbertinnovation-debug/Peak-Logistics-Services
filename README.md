@@ -5,9 +5,8 @@ opposite the Freeport of Monrovia, Bushrod Island, Monrovia, Liberia.
 
 > Your Cargo, Our Commitment. Reaching New Heights in Liberia.
 
-All copy comes from the company profile. The greens and golds are sampled from the
-company's own logo and banner, and the photography is taken from the company flyer.
-No figures, clients or claims have been invented.
+All copy comes from the company profile, and the greens and golds are sampled from the
+company's own logo and banner. No figures, clients or claims have been invented.
 
 ## Pages
 
@@ -38,6 +37,7 @@ The pages are **generated** — edit the source, not the HTML:
 | Header, footer, calls to action | the functions in `tools/common.py` |
 | Page layouts and sections | `tools/build.py` |
 | Colours, type, spacing | the `:root` block at the top of `assets/css/style.css` |
+| Photographs | see *Photos* below |
 
 Then rebuild:
 
@@ -47,6 +47,20 @@ python3 tools/build.py
 
 It needs only Python 3 — no packages. Commit the regenerated `.html` files along with
 your change. **Edits made directly to the HTML are overwritten on the next build.**
+
+### Photos
+
+Originals live in `tools/images/masters/`. `tools/images/process.py` crops each one
+and writes WebP and JPEG copies at phone and desktop sizes into `assets/img/photos/` —
+the JPEGs are for older phones and feature phones that cannot show WebP. It also draws
+`assets/img/og-card.jpg`, the preview shown when the site is shared on WhatsApp or
+Facebook. To swap a photo, save the new one over the master with the same name (or add
+one and reference it in `tools/common.py`), then:
+
+```sh
+pip install Pillow
+python3 tools/images/process.py && python3 tools/build.py
+```
 
 The dot-matrix world map is generated separately and rarely needs touching. To change
 the trade lanes shown on it: `cd tools/map && npm install && node generate-map.mjs`,
@@ -67,11 +81,11 @@ then run the build.
    such as [Formspree](https://formspree.io) and remove the send buttons' handler at
    the end of `assets/js/main.js`.
 
-3. **Add real photographs when you can.** The two photos on the site come from the
-   company flyer and are illustrative. Photos of your own trucks, warehouse, team and
-   the office will build more trust than anything else on the page. Replace
-   `assets/img/hero-port.jpg` (landscape, at least 1200px wide) and
-   `assets/img/vessel-quayside.jpg` (portrait, 4:5).
+3. **Swap in your own photographs over time.** The current set is illustrative; the
+   captions describe what is shown rather than calling it "our team" or "our
+   warehouse". Genuine photos of your own
+   trucks, yard, staff and office will still build the most trust — replace the
+   masters one at a time as you take them (landscape, at least 1400px wide).
 
 4. **Add proof as you gather it.** Years in operation, shipments handled, client
    testimonials, partner logos and licences were not in the company profile, so the site
@@ -131,11 +145,14 @@ elsewhere.
 │   ├── css/style.css       design system — tokens at the top
 │   ├── js/main.js          menu, services explorer, route map, journey road, quote form
 │   ├── fonts/              Archivo and JetBrains Mono, self-hosted (SIL OFL)
-│   ├── img/                logo, photography, world map, icons
+│   ├── img/                logo, world map, share card, icons
+│   │   └── photos/         generated photo sizes (WebP + JPEG)
 │   └── docs/               company profile PDF
 ├── tools/
 │   ├── common.py           content and shared page parts
 │   ├── build.py            page layouts; run this to rebuild
+│   ├── photos.json         sizes of each generated photo
+│   ├── images/             photo masters and the script that processes them
 │   ├── map-points.json     where each trade lane starts and ends
 │   └── map/                optional world-map generator (Node)
 ├── favicon.ico, robots.txt, sitemap.xml
@@ -143,8 +160,9 @@ elsewhere.
 
 ## How it's built
 
-- **Fast on mobile data.** The whole homepage is about 570 KB across 10 requests
-  before compression. Fonts are self-hosted, so there are no third-party requests
+- **Fast on mobile data.** The first screen of the homepage is about 415 KB, and the
+  whole page, with nine photos, about 770 KB. Photos load only as they scroll into
+  view, at a size matched to the screen. Fonts are self-hosted, so there are no third-party requests
   except the map on the contact page.
 - **Works without JavaScript.** Every page reads completely with scripts off: the
   services explorer shows all six services, and the quote form becomes a single email

@@ -21,6 +21,19 @@ ADDR_LINES = ['Opposite Freeport of Monrovia', 'Behind CONEX Gas Station',
 ADDR_HTML = '<br>'.join(ADDR_LINES)
 PDF = 'assets/docs/Peak-Logistics-Services-Company-Profile.pdf'
 
+PHOTOS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'photos.json')))
+
+def pic(name, alt, sizes, cls='', eager=False):
+    """<picture> with WebP and a JPEG fallback at every width in tools/photos.json."""
+    v = PHOTOS[name]
+    src = lambda ext: ', '.join(f'assets/img/photos/{name}-{w}.{ext} {w}w' for w, h in v)
+    w, h = v[-1]
+    load = ' fetchpriority="high"' if eager else ' loading="lazy"'
+    c = f' class="{cls}"' if cls else ''
+    return (f'<picture{c}><source type="image/webp" srcset="{src("webp")}" sizes="{sizes}">'
+            f'<img src="assets/img/photos/{name}-{v[0][0]}.jpg" srcset="{src("jpg")}" sizes="{sizes}" '
+            f'width="{w}" height="{h}" alt="{html.escape(alt, quote=True)}"{load} decoding="async"></picture>')
+
 def ico(name, cls=''):
     c = f' class="{cls}"' if cls else ''
     return f'<svg{c} aria-hidden="true"><use href="#i-{name}"></use></svg>'
@@ -66,36 +79,36 @@ SPRITE = f'''<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-h
 # ------------------------------------------------------------------ content
 
 SERVICES = [
-    dict(slug='freight-forwarding', icon='ship', title='Freight Forwarding', short='Freight forwarding',
+    dict(slug='freight-forwarding', photo='reach-stacker', alt='A reach stacker lifts a red container from a ship onto a waiting truck at the quay.', icon='ship', title='Freight Forwarding', short='Freight forwarding',
          blurb='We coordinate the movement of your cargo across every mode of transport, choosing the route and carrier that fit your budget and your deadline.',
          detail='Whether it is a single air consignment or a regular container flow, we compare routes and carriers across modes, book the space, and keep you informed until the cargo arrives.',
          bullets=['Air, sea, road and rail transportation', 'Route optimisation and carrier coordination',
                   'Shipment tracking and global shipping support'],
          tags=['Air', 'Sea', 'Road', 'Rail']),
-    dict(slug='customs-brokerage', icon='shield', title='Customs Brokerage', short='Customs clearing',
+    dict(slug='customs-brokerage', photo='customs-counter', alt='A clearing agent hands a stack of documents to a customs officer across the counter.', icon='shield', title='Customs Brokerage', short='Customs clearing',
          blurb='Customs is where shipments stall. We prepare, file and follow through on your entries so cargo clears without avoidable delay or penalty.',
          detail='We prepare and file your import and export entries, work out and process the duties and taxes due, and make sure each consignment meets local and international requirements.',
          bullets=['Import and export documentation', 'Duty and tax processing',
                   'Regulatory compliance with local and international laws'],
          tags=['Import', 'Export', 'Duties & taxes']),
-    dict(slug='documentation', icon='doc', title='Documentation Services', short='Documentation',
+    dict(slug='documentation', photo='gate-check', alt='An inspector with a clipboard checks a container truck’s papers at a terminal gate.', icon='doc', title='Documentation Services', short='Documentation',
          blurb='Every shipment carries a paper trail. We prepare it correctly the first time and manage it from booking through to final delivery.',
          detail='Commercial invoices, bills of lading, certificates of origin and packing lists — prepared, checked against one another and managed end to end, so the paperwork never holds up the cargo.',
          bullets=['Commercial invoices and bills of lading', 'Certificates of origin and packing lists',
                   'End-to-end documentation management'],
          tags=['B/L', 'Invoice', 'COO', 'Packing list']),
-    dict(slug='supply-chain', icon='chain', title='Supply Chain Management', short='Supply chain',
+    dict(slug='supply-chain', photo='warehouse-aisle', alt='Two staff review stock on a tablet in a racked warehouse aisle as a forklift moves a pallet.', icon='chain', title='Supply Chain Management', short='Supply chain',
          blurb='Beyond single shipments, we help you plan the flow of goods — how much to hold, where to hold it and how it reaches your customers.',
          detail='For clients moving goods regularly, we look past the individual shipment: planning flows, advising on stock and coordinating warehousing and distribution so goods are where you need them.',
          bullets=['Logistics planning and advisory', 'Inventory control and coordination',
                   'Warehousing and distribution solutions'],
          tags=['Planning', 'Inventory', 'Warehousing']),
-    dict(slug='specialised', icon='warehouse', title='Specialised Logistics', short='Specialised logistics',
+    dict(slug='specialised', photo='sealed-container', alt='A forklift loads wrapped pallets beside a container door closed with a yellow security seal.', icon='warehouse', title='Specialised Logistics', short='Specialised logistics',
          blurb='For cargo that needs more than a standard lane — goods held under bond, trades between third countries, and delivery to the final address.',
          detail='Some consignments need particular handling. We manage bonded storage while duties are pending, cross-trade movements that never touch Liberia, and the last mile to your door.',
          bullets=['Bonded warehousing', 'Cross-trade operations', 'Last-mile delivery solutions'],
          tags=['Bonded', 'Cross-trade', 'Last mile']),
-    dict(slug='transportation', icon='truck', title='Transportation Services', short='Transportation',
+    dict(slug='transportation', photo='highway-truck', alt='A white truck carrying an orange container on an open road lined with palm trees.', icon='truck', title='Transportation Services', short='Transportation',
          blurb='Reliable, flexible cargo delivery across Liberia and beyond, shaped around what you are carrying and when it needs to arrive.',
          detail='We arrange transport around your cargo, your route and your timetable — from a single delivery across Monrovia to regular movements inland and beyond the border.',
          bullets=['Reliable and flexible cargo delivery', 'Customised transport solutions based on client needs',
@@ -299,8 +312,11 @@ def footer():
 def tag(n, label):
     return f'<p class="tag"><b>[{n}]</b> {label}</p>' if n else f'<p class="tag">{label}</p>'
 
-def phero(crumb, t, title, lead, extra=''):
-    return f'''  <section class="phero">
+def phero(crumb, t, title, lead, extra='', photo=None, pos='70% 50%'):
+    bg = (f'\n    <div class="phero__bg" style="--pos:{pos}" aria-hidden="true">{pic(photo, "", "100vw", eager=True)}</div>'
+          if photo else '')
+    cls = 'phero phero--photo' if photo else 'phero'
+    return f'''  <section class="{cls}">{bg}
     <div class="wrap">
       <ol class="crumbs"><li><a href="index.html">Home</a></li><li aria-current="page">{crumb}</li></ol>
       <h1 class="h1">{title}</h1>

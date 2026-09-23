@@ -25,7 +25,8 @@ def svc_explorer():
         checks = ''.join(f'<li>{ico("check")}<span>{b}</span></li>' for b in s['bullets'])
         tags = ''.join(f'<li>{t}</li>' for t in s['tags'])
         panels.append(f'''        <article class="svp" id="svc-{s["slug"]}">
-          <div class="svp__top"><span class="svp__icon">{ico(s["icon"])}</span><span class="svp__n" aria-hidden="true">{i+1:02d}</span></div>
+          <div class="svp__photo">{pic(s["photo"], s["alt"], "(min-width: 960px) 44vw, 100vw")}</div>
+          <div class="svp__top"><span class="svp__icon">{ico(s["icon"])}</span></div>
           <h3>{s["title"]}</h3>
           <p class="svp__desc">{s["blurb"]}</p>
           <p class="svp__desc">{s["detail"]}</p>
@@ -189,8 +190,7 @@ def home():
       <div class="hero__vis">
         <span class="hero__corner" aria-hidden="true"></span>
         <div class="hero__photo">
-          <img src="assets/img/hero-port.jpg" width="1200" height="966" fetchpriority="high" decoding="async"
-               alt="A yellow container truck on the quayside beside a loaded container ship and a gantry crane at sunrise.">
+          {pic("port-crane-tall", "A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay.", "(min-width: 1000px) 40vw, 100vw", eager=True)}
           <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
         </div>
         <div class="journey-card" aria-label="How a shipment moves with us">
@@ -272,8 +272,7 @@ def home():
   <section class="sec sec--dark" aria-labelledby="why-h">
     <div class="wrap split split--rev">
       <div class="frame frame--tall rv">
-        <img src="assets/img/vessel-quayside.jpg" width="720" height="968" loading="lazy" decoding="async"
-             alt="A container vessel alongside the quay with a gantry crane working and a loaded truck pulling away.">
+        {pic("dock-crew-tall", "Warehouse crew in high-visibility vests move a wrapped pallet with a pallet jack.", "(min-width: 960px) 44vw, 100vw")}
         <p class="frame__cap">One partner, every mode <span>Sea · Air · Road · Rail</span></p>
       </div>
       <div>
@@ -340,6 +339,7 @@ def services():
           <span class="svc-row__n">SERVICE {i+1:02d} / 06</span>
           <h2 id="h-{s["slug"]}">{s["title"]}</h2>
           <ul class="svp__modes" aria-label="Covers">{tags}</ul>
+          <div class="svc-row__photo">{pic(s["photo"], s["alt"], "(min-width: 960px) 38vw, 100vw")}</div>
         </div>
         <div class="svc-row__body rv">
           <p class="lead">{s["blurb"]}</p>
@@ -357,7 +357,8 @@ def services():
     body = f'''{header('services.html')}
 <main id="main">
 {phero('Services', 'Services', 'Logistics for the whole value chain.',
-       'Six service lines, four transport modes and one point of contact — from the first enquiry, through customs clearance, to the final delivery address.', jump)}
+       'Six service lines, four transport modes and one point of contact — from the first enquiry, through customs clearance, to the final delivery address.', jump,
+       photo='fleet', pos='62% 60%')}
   <section class="sec sec--white" aria-label="Service lines">
     <div class="wrap">
 {chr(10).join(rows)}
@@ -409,7 +410,8 @@ def about():
     body = f'''{header('about.html')}
 <main id="main">
 {phero('About', 'About us', 'Reaching new heights in Liberia.',
-       'Peak Logistics Services is a full-service logistics company committed to delivering efficient, reliable and client-focused solutions across Liberia.')}
+       'Peak Logistics Services is a full-service logistics company committed to delivering efficient, reliable and client-focused solutions across Liberia.',
+       photo='highway-truck', pos='70% 55%')}
   <section class="sec sec--white" aria-labelledby="intro-h">
     <div class="wrap split">
       <div>
@@ -422,9 +424,9 @@ def about():
           <a class="btn btn--line" href="services.html">Our services {ico("arrow", "arr")}</a>
         </div>
       </div>
-      <div class="frame rv" style="max-width:500px;margin-inline:auto">
-        <img src="assets/img/company-flyer.jpg" width="820" height="1160" loading="lazy" decoding="async"
-             alt="Peak Logistics Services company flyer: freight forwarding, transportation, customs clearing and supply chain management.">
+      <div class="frame frame--tall rv">
+        {pic("warehouse-team-tall", "Three warehouse staff in hard hats review a consignment on a tablet and clipboard beside racked pallets.", "(min-width: 960px) 44vw, 100vw")}
+        <p class="frame__cap">Freight · Customs · Warehousing <span>Monrovia</span></p>
       </div>
     </div>
   </section>
@@ -470,7 +472,7 @@ def about():
         <div class="rv" style="--rd:.16s"><h3>Continuous improvement</h3><p>Finding better ways to move cargo — faster, at lower cost and with fewer surprises.</p></div>
       </div>
       <div class="profile-card rv" style="margin-top:clamp(3rem,6vw,4.5rem)">
-        <span class="profile-card__i" aria-hidden="true">PDF</span>
+        <img class="profile-card__thumb" src="assets/img/company-flyer.jpg" width="820" height="1160" alt="" loading="lazy" decoding="async">
         <div><h3>Company profile</h3><p>Services, mission, values and contact details in one document — ready to share with your team.</p></div>
         <a class="btn btn--green" href="{PDF}">{ico("download")} Download</a>
       </div>
@@ -503,7 +505,8 @@ def contact():
     body = f'''{header('contact.html')}
 <main id="main">
 {phero('Contact', 'Contact', 'Let’s move your cargo.',
-       'Send the details through the quote form, or reach us directly on WhatsApp, by phone or by email. Our office is opposite the Freeport of Monrovia.')}
+       'Send the details through the quote form, or reach us directly on WhatsApp, by phone or by email. Our office is opposite the Freeport of Monrovia.',
+       photo='gate-check', pos='64% 50%')}
   <section class="sec sec--paper">
     <div class="wrap contact-grid">
 

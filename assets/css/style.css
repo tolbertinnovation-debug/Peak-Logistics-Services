@@ -95,6 +95,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 img, svg, video { display: block; max-width: 100%; height: auto; }
+picture { display: contents; }
 a { color: inherit; }
 ul, ol { margin: 0; padding: 0; }
 p { margin: 0; text-wrap: pretty; }
@@ -583,7 +584,14 @@ body.nav-open { overflow: hidden; }
 .js .svx.is-tabbed .svp[hidden] { display: none; }
 .js .svx.is-tabbed .svp { animation: panel-in .45s var(--ease); }
 @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.svp__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.svp__photo {
+  --pad: clamp(1.6rem, 3.5vw, 2.75rem);
+  margin: calc(var(--pad) * -1) calc(var(--pad) * -1) 0; aspect-ratio: 16 / 7; overflow: hidden; background: var(--paper-2);
+}
+.svp__photo img { width: 100%; height: 100%; object-fit: cover; }
+.svp__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.svp__photo + .svp__top { position: relative; margin-top: -32px; }
+.svp__photo + .svp__top .svp__icon { box-shadow: 0 0 0 5px var(--white); }
 .svp__icon {
   display: grid; place-items: center; width: 64px; height: 64px; border-radius: 16px;
   background: var(--night); color: var(--gold-hi);
@@ -1120,3 +1128,21 @@ body.nav-open { overflow: hidden; }
 }
 .svc-row__box h3 { font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .svc-row__box .checks { margin-top: 1rem; }
+
+/* Services page: photo under each service title */
+.svc-row__photo { margin-top: 1.75rem; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 3; background: var(--paper-2); box-shadow: var(--sh-2); }
+.svc-row__photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 959px) { .svc-row__photo { aspect-ratio: 16 / 9; } }
+
+/* Page hero with a background photograph: solid on the text side, opening up to the right */
+.phero__bg { position: absolute; inset: 0; z-index: -2; }
+.phero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 70% 50%); }
+.phero--photo::before {
+  background: linear-gradient(90deg, var(--night) 0%, rgba(6, 28, 19, .93) 36%, rgba(6, 28, 19, .62) 66%, rgba(6, 28, 19, .3) 100%);
+  opacity: 1; mask-image: none; -webkit-mask-image: none;
+}
+@media (max-width: 760px) {
+  .phero--photo::before { background: linear-gradient(180deg, rgba(6, 28, 19, .8), rgba(6, 28, 19, .92)); }
+}
+
+.profile-card__thumb { width: 76px; border-radius: 8px; box-shadow: var(--sh-2); }
