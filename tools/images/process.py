@@ -22,7 +22,7 @@ OUT = os.path.join(HERE, '..', '..', 'assets', 'img', 'photos')
 WIDE = (800, 1400)
 CROPS = {
     'port-crane-tall':     ('port-crane',      (420, 0, 1238, 941),  (640, 1000)),
-    'dock-crew-tall':      ('dock-crew',       (0, 0, 753, 941),     (600, 900)),
+    'fleet-tall':          ('fleet',           (0, 0, 753, 941),     (600, 900)),
     'warehouse-team-tall': ('warehouse-team',  (830, 0, 1583, 941),  (600, 900)),
     'reach-stacker':       ('reach-stacker',   None, WIDE),
     'customs-counter':     ('customs-counter', None, WIDE),

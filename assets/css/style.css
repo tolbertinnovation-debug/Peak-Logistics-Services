@@ -783,6 +783,7 @@ body.nav-open { overflow: hidden; }
   font-size: .92rem; font-weight: 600;
 }
 .frame__cap span { font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; color: var(--gold-hi); text-transform: uppercase; }
+@media (max-width: 560px) { .frame__cap span { display: none; } }  /* one line, so it doesn't cover the subject */
 
 .adv { list-style: none; display: grid; gap: 0; margin-top: 2.25rem; border-top: 1px solid var(--line-dark); }
 .adv li { display: grid; grid-template-columns: 2.75rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line-dark); }

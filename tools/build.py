@@ -272,7 +272,7 @@ def home():
   <section class="sec sec--dark" aria-labelledby="why-h">
     <div class="wrap split split--rev">
       <div class="frame frame--tall rv">
-        {pic("dock-crew-tall", "Warehouse crew in high-visibility vests move a wrapped pallet with a pallet jack.", "(min-width: 960px) 44vw, 100vw")}
+        {pic("fleet-tall", "A crew in high-visibility vests talks beside a white truck carrying a container, palm trees behind.", "(min-width: 960px) 44vw, 100vw")}
         <p class="frame__cap">One partner, every mode <span>Sea · Air · Road · Rail</span></p>
       </div>
       <div>
