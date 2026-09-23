@@ -250,13 +250,21 @@ h3, h4 { font-stretch: 100%; line-height: 1.2; letter-spacing: -.015em; font-wei
   background: var(--night); color: #fff;
   transition: background-color .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease);
 }
-.hdr.is-solid {
+/* The frosted glass lives on a pseudo-element on purpose: backdrop-filter on .hdr itself
+   would make the header the containing block for the fixed mobile menu and collapse it. */
+.hdr::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: rgba(246, 244, 238, .92);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   backdrop-filter: saturate(180%) blur(14px);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.hdr.is-solid {
+  background: transparent;
   color: var(--text);
   box-shadow: 0 1px 0 var(--line), 0 10px 30px rgba(6, 28, 19, .06);
 }
+.hdr.is-solid::before { opacity: 1; }
 .hdr__bar { display: flex; align-items: center; gap: 1.5rem; min-height: 80px; }
 
 .brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; margin-right: auto; }
@@ -271,19 +279,19 @@ h3, h4 { font-stretch: 100%; line-height: 1.2; letter-spacing: -.015em; font-wei
 }
 
 .nav { display: flex; align-items: center; gap: .25rem; }
-.nav a {
+.nav > a {
   position: relative; padding: .55rem .9rem; border-radius: 8px;
   font-size: .98rem; font-weight: 560; text-decoration: none; opacity: .86;
   transition: opacity .2s, background-color .2s;
 }
-.nav a:hover { opacity: 1; background: rgba(255, 255, 255, .07); }
-.hdr.is-solid .nav a:hover { background: rgba(10, 42, 29, .06); }
-.nav a[aria-current="page"] { opacity: 1; }
-.nav a[aria-current="page"]::after {
+.nav > a:hover { opacity: 1; background: rgba(255, 255, 255, .07); }
+.hdr.is-solid .nav > a:hover { background: rgba(10, 42, 29, .06); }
+.nav > a[aria-current="page"] { opacity: 1; }
+.nav > a[aria-current="page"]::after {
   content: ""; position: absolute; left: .9rem; right: .9rem; bottom: .2rem; height: 2px;
   background: repeating-linear-gradient(90deg, var(--gold-hi) 0 6px, transparent 6px 10px);
 }
-.hdr.is-solid .nav a[aria-current="page"]::after {
+.hdr.is-solid .nav > a[aria-current="page"]::after {
   background: repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 10px);
 }
 
@@ -324,15 +332,16 @@ h3, h4 { font-stretch: 100%; line-height: 1.2; letter-spacing: -.015em; font-wei
     transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
   }
   .nav.is-open { opacity: 1; visibility: visible; transform: none; }
-  .nav a {
+  .nav > a {
     padding: 1.1rem 0; border-radius: 0; opacity: 1;
     font-size: 1.7rem; font-weight: 700; font-stretch: 110%; letter-spacing: -.02em;
     border-bottom: 1px solid var(--line-dark);
   }
-  .nav a:hover { background: none; color: var(--gold-hi); }
-  .nav a[aria-current="page"] { color: var(--gold-hi); }
-  .nav a[aria-current="page"]::after { display: none; }
+  .nav > a:hover { background: none; color: var(--gold-hi); }
+  .nav > a[aria-current="page"] { color: var(--gold-hi); }
+  .nav > a[aria-current="page"]::after { display: none; }
   .nav__extra { display: grid !important; gap: .75rem; margin-top: 2rem; }
+  .nav__extra .btn { width: 100%; white-space: normal; text-align: center; }
   .brand img { width: 54px; }
 }
 .nav__extra { display: none; }

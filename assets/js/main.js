@@ -22,12 +22,19 @@
   /* ------------------------------------------------------------- Menu */
   var burger = $('.burger');
   var nav = $('#nav');
+  var menuOpen = false;
   if (burger && nav) {
+    // Everything outside the header is made inert while the menu is open, so keyboard
+    // and screen-reader focus stays inside the menu.
+    var behind = $$('.util, main, .ftr, .wa-fab');
     var setMenu = function (open) {
+      menuOpen = open;
       burger.setAttribute('aria-expanded', String(open));
       burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       nav.classList.toggle('is-open', open);
       doc.body.classList.toggle('nav-open', open);
+      behind.forEach(function (el) { el.inert = open; });
+      syncHeader();
     };
     burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
@@ -46,8 +53,9 @@
   var ftr = $('.ftr');
   var heroOut = !top, ftrIn = false;
 
+  // The header stays dark while the menu is open so the two read as one panel.
   function syncHeader() {
-    if (hdr) hdr.classList.toggle('is-solid', window.scrollY > 24);
+    if (hdr) hdr.classList.toggle('is-solid', window.scrollY > 24 && !menuOpen);
   }
   syncHeader();
   window.addEventListener('scroll', syncHeader, { passive: true });
