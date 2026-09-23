@@ -944,6 +944,9 @@ body.nav-open { overflow: hidden; }
   font-size: .88rem;
 }
 .ftr__bottom .tagline { color: var(--gold-hi); font-weight: 600; }
+.ftr__credit { white-space: nowrap; }
+.ftr__credit a { color: #fff; text-decoration: underline; text-decoration-color: var(--gold-hi); text-underline-offset: 3px; }
+.ftr__credit a:hover { color: var(--gold-hi); }
 
 /* WhatsApp floating button */
 .wa-fab {
