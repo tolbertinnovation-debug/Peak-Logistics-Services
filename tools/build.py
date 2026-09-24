@@ -188,9 +188,9 @@ def home():
         </div>
         <ul class="modes" aria-label="Transport modes">{modes}</ul>
       </div>
-    </div>
-    <div class="hero__map">
+      <div class="hero__map">
 {netmap(hero=True)}
+      </div>
     </div>
   </section>
 

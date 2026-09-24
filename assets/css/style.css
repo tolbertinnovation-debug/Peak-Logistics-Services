@@ -475,19 +475,23 @@ body.nav-open { overflow: hidden; }
 .hero__inner { position: relative; z-index: 1; }
 .hero__copy { max-width: 38rem; }
 .hero__map { position: relative; margin-top: clamp(2rem, 5vw, 3rem); }
+/* Desktop: the map starts in the column beside the headline and runs out to the right
+   edge of the screen. Its width is set from the viewport so the Americas (26% across the
+   map, label included) meet the column edge and Asia (80.5%) still lands on screen; the
+   Pacific beyond Asia is cropped by the hero. */
 @media (min-width: 1000px) {
-  .hero__map { position: absolute; inset: 0; z-index: 0; margin: 0; overflow: hidden; pointer-events: none; }
-  /* Liberia (44.86% across the map, 53.7% down) sits 72% across and just below middle */
+  .hero__inner { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; }
+  .hero__copy { position: relative; z-index: 1; }
+  .hero__map { margin: 0; }
   .hero__map .netmap {
-    position: absolute; width: 125%; margin: 0 !important;
-    left: calc(72% - 125% * .4486); top: 54%; transform: translateY(-53.7%);
+    --mw: min(90vw, 1500px);
+    width: var(--mw); max-width: none; margin: 0 0 0 calc(var(--mw) * -.25) !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 23%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 23%);
   }
-  .hero__map::after {
-    content: ""; position: absolute; inset: 0;
-    background:
-      linear-gradient(90deg, var(--night) 0%, rgba(6, 28, 19, .92) 30%, rgba(6, 28, 19, .5) 46%, rgba(6, 28, 19, 0) 60%),
-      linear-gradient(0deg, var(--night) 0%, rgba(6, 28, 19, 0) 16%);
-  }
+  .hero .netmap--hero .hub-label { font-size: 20px; }   /* .hero prefix: outranks the base .netmap rules further down */
+  .hero .netmap--hero .home-label { font-size: 27px; }
+  .hero .netmap--hero .home-sub { font-size: 15px; }
 }
 
 /* Reach section: the port photo and shipment card, beside the heading */
@@ -686,14 +690,18 @@ body.nav-open { overflow: hidden; }
 .netmap .home-sub { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; fill: var(--gold-hi); text-transform: uppercase; }
 .netmap .runner { fill: #fff; }
 @media (prefers-reduced-motion: reduce) { .netmap .runner, .netmap .home-ring { display: none; } }
-/* On phones, zoom into the Atlantic: Americas at the left edge, Monrovia centre-left,
-   the Asia lane arriving from off-frame. Keeps every label legible. */
-@media (max-width: 700px) {
+/* On phones, crop to the band from the Americas to Asia so every hub stays in frame
+   and the labels are large enough to read. */
+@media (max-width: 999px) {
   .netmap { overflow: hidden; margin-inline: calc(var(--gut) * -1); }
-  .netmap svg { width: 210%; max-width: none; margin-left: -46.9%; }
-  .netmap .hub-label { font-size: 21px; }
-  .netmap .home-label { font-size: 30px; }
-  .netmap .home-sub { font-size: 17px; }
+  .netmap svg { width: 170%; max-width: none; margin-left: -40%; }
+  .netmap .hub-label { font-size: 28px; }
+  .netmap .home-label { font-size: 36px; }
+  .netmap .home-sub { display: none; }  /* would run off the left edge; the pill above says it */
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  .netmap .hub-label { font-size: 18px; }
+  .netmap .home-label { font-size: 26px; }
 }
 
 .modegrid {
