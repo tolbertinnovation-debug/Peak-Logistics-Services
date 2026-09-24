@@ -602,6 +602,7 @@ body.nav-open { overflow: hidden; }
 .stat--lead {
   grid-column: 1 / -1; position: relative; isolation: isolate; overflow: hidden;
   background: var(--night); color: #fff;
+  justify-content: center; align-items: center; text-align: center;   /* centred in the tile */
 }
 .stat--lead::before {   /* container ribs */
   content: ""; position: absolute; inset: 0; z-index: -1;
