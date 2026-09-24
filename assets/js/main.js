@@ -80,6 +80,21 @@
   if (reduced) rv.forEach(function (el) { el.classList.add('in'); });
   else onView(rv, function (el) { el.classList.add('in'); });
 
+  /* ------------------------------------------------ Figures: count up */
+  var counters = $$('[data-count]');
+  if (counters.length && !reduced && io) {
+    counters.forEach(function (el) { el.textContent = '0' + el.dataset.suffix; });
+    onView(counters, function (el) {
+      var end = +el.dataset.count, suffix = el.dataset.suffix, start = null, dur = 1400;
+      (function tick(t) {
+        if (start === null) start = t;
+        var k = Math.min(1, (t - start) / dur);
+        el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suffix;
+        if (k < 1) requestAnimationFrame(tick);
+      })(performance.now());
+    });
+  }
+
   /* ------------------------------------------ Hero: shipment walkthrough */
   var jc = $$('.jc-steps li');
   if (jc.length) {

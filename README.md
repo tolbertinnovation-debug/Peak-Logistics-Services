@@ -6,7 +6,8 @@ opposite the Freeport of Monrovia, Bushrod Island, Monrovia, Liberia.
 > Your Cargo, Our Commitment. Reaching New Heights in Liberia.
 
 All copy comes from the company profile, and the greens and golds are sampled from the
-company's own logo and banner. No figures, clients or claims have been invented.
+company's own logo and banner. The figures on the homepage (years of experience,
+on-time rate, shipments and so on) were supplied by the company.
 
 ## Pages
 
@@ -34,6 +35,7 @@ The pages are **generated** — edit the source, not the HTML:
 | --- | --- |
 | Phone, email, address, social links | the constants at the top of `tools/common.py` |
 | Services, FAQ, values, mission, segments | the lists in `tools/common.py` |
+| Homepage figures (10+ years, 98% on time…) | `STATS` in `tools/common.py` — keep them current |
 | Header, footer, calls to action | the functions in `tools/common.py` |
 | Page layouts and sections | `tools/build.py` |
 | Colours, type, spacing | the `:root` block at the top of `assets/css/style.css` |
@@ -87,9 +89,10 @@ then run the build.
    trucks, yard, staff and office will still build the most trust — replace the
    masters one at a time as you take them (landscape, at least 1400px wide).
 
-4. **Add proof as you gather it.** Years in operation, shipments handled, client
-   testimonials, partner logos and licences were not in the company profile, so the site
-   makes no such claims. Each would strengthen it — add them to `tools/common.py`.
+4. **Keep the figures true, and add more proof as you gather it.** The homepage
+   figures are in `STATS` in `tools/common.py`; update them as they change (for example,
+   500+ shipments). Client testimonials, partner logos and licences would strengthen the
+   site further.
 
 5. **Opening hours** were not in the profile either, so none are published.
 

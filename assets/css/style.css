@@ -583,19 +583,36 @@ body.nav-open { overflow: hidden; }
 .pillar h3 { margin: .8rem 0 .55rem; font-size: 1.35rem; }
 .pillar p { color: var(--muted); }
 
-.figures {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 1px;
+
+/* Company figures: a highlighted lead tile plus a 3 x 2 grid (2 x 3 on phones) */
+.stats {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px;
   margin-top: clamp(3rem, 6vw, 4.5rem);
-  background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+  background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
 }
-.figure { padding: 1.75rem 1.6rem; background: var(--white); }
-.figure__v {
-  font-size: clamp(2.8rem, 5vw, 4rem); font-weight: 780; font-stretch: 115%;
-  line-height: .9; letter-spacing: -.04em; color: var(--green);
+.stat {
+  display: flex; flex-direction: column; justify-content: flex-end; min-height: 150px;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.1rem, 2.2vw, 1.6rem); background: var(--white);
 }
-.figure__v sup { font-size: .38em; vertical-align: top; margin-left: .15em; color: var(--gold-ink); letter-spacing: 0; }
-.figure__l { margin-top: .8rem; font-weight: 600; font-size: .98rem; }
-.figure__s { margin-top: .2rem; font-size: .9rem; color: var(--muted); }
+.stat__v {
+  font-size: clamp(2.3rem, 4.4vw, 3.5rem); font-weight: 780; font-stretch: 115%;
+  line-height: .9; letter-spacing: -.04em; color: var(--green); font-variant-numeric: tabular-nums;
+}
+.stat__l { margin-top: .75rem; font-size: .98rem; font-weight: 600; line-height: 1.3; }
+.stat--lead {
+  grid-column: 1 / -1; position: relative; isolation: isolate; overflow: hidden;
+  background: var(--night); color: #fff;
+}
+.stat--lead::before {   /* container ribs */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 2px, transparent 2px 14px);
+}
+.stat--lead .stat__v { font-size: clamp(4rem, 10vw, 7.5rem); color: var(--gold-hi); }
+.stat--lead .stat__l { font-size: 1.15rem; }
+@media (min-width: 900px) {
+  .stats { grid-template-columns: 1.35fr repeat(3, minmax(0, 1fr)); }
+  .stat--lead { grid-column: 1; grid-row: 1 / span 2; }
+}
 
 /* ------------------------------------------------------ Services explorer */
 

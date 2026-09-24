@@ -150,6 +150,18 @@ VALUES = [
     ('clock', 'Reliability', 'Ensuring dependable and timely service delivery, so your plans hold.'),
 ]
 
+# Company figures shown on the homepage, as supplied by Peak Logistics Services.
+# (value, label). The first one is shown as the large highlighted tile.
+STATS = [
+    ('10+',  'Years of experience'),
+    ('98%',  'On-time delivery rate'),
+    ('15',   'Counties reached nationwide'),
+    ('3',    'Major ports served'),
+    ('500+', 'Shipments delivered'),
+    ('20+',  'Satisfied clients'),
+    ('24/7', 'Customer support'),
+]
+
 MISSION = 'To ensure the smooth, efficient and timely transportation of goods and services, delivering consistent value and reliability to our clients.'
 VISION = 'To become a leading logistics provider in Liberia and beyond, recognised for transforming logistics operations through innovation, efficiency and excellence in service delivery.'
 

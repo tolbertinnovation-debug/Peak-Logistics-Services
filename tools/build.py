@@ -83,6 +83,18 @@ def netmap(hero=False):
       </figure>'''
 
 
+def stats():
+    import re
+    tiles = []
+    for i, (v, label) in enumerate(STATS):
+        m = re.fullmatch(r'(\d+)(\D*)', v)        # 98% -> count to 98, suffix %; 24/7 is not counted
+        count = f' data-count="{m.group(1)}" data-suffix="{m.group(2)}"' if m else ''
+        cls = 'stat stat--lead' if i == 0 else 'stat'
+        tiles.append(f'<div class="{cls}"><p class="stat__v"><span class="visually-hidden">{v}</span>'
+                     f'<span aria-hidden="true"{count}>{v}</span></p><p class="stat__l">{label}</p></div>')
+    return '<div class="stats rv">' + ''.join(tiles) + '</div>'
+
+
 def modegrid():
     return '<div class="modegrid rv">' + ''.join(
         f'<div class="mode">{ico(i)}<span class="mode__code">{c}</span><h3>{t}</h3><p>{d}</p></div>'
@@ -204,12 +216,7 @@ def home():
         <div class="pillar rv" style="--rd:.08s"><p class="pillar__n">02 — COMPLIANCE</p><h3>Cleared, not held</h3><p>Customs regulations and documentation requirements met in full, so shipments clear without avoidable delays or penalties.</p></div>
         <div class="pillar rv" style="--rd:.16s"><p class="pillar__n">03 — TIMELINESS</p><h3>One team, start to finish</h3><p>Cargo followed from origin to destination, with a single team accountable for getting it there on time.</p></div>
       </div>
-      <div class="figures rv">
-        <div class="figure"><p class="figure__v">04</p><p class="figure__l">Transport modes</p><p class="figure__s">Air, sea, road and rail</p></div>
-        <div class="figure"><p class="figure__v">06</p><p class="figure__l">Service lines</p><p class="figure__s">From forwarding to the last mile</p></div>
-        <div class="figure"><p class="figure__v">01</p><p class="figure__l">Point of contact</p><p class="figure__s">For the whole journey</p></div>
-        <div class="figure"><p class="figure__v">LR</p><p class="figure__l">Rooted in Liberia</p><p class="figure__s">Based on Bushrod Island, Monrovia</p></div>
-      </div>
+      {stats()}
     </div>
   </section>
 
