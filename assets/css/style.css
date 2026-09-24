@@ -591,7 +591,8 @@ body.nav-open { overflow: hidden; }
   background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
 }
 .stat {
-  display: flex; flex-direction: column; justify-content: flex-end; min-height: 150px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  min-height: 150px;
   padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.1rem, 2.2vw, 1.6rem); background: var(--white);
 }
 .stat__v {
@@ -602,7 +603,6 @@ body.nav-open { overflow: hidden; }
 .stat--lead {
   grid-column: 1 / -1; position: relative; isolation: isolate; overflow: hidden;
   background: var(--night); color: #fff;
-  justify-content: center; align-items: center; text-align: center;   /* centred in the tile */
 }
 .stat--lead::before {   /* container ribs */
   content: ""; position: absolute; inset: 0; z-index: -1;
