@@ -75,7 +75,17 @@ then run the build.
    site* below. To use a different domain, change `SITE` in `tools/common.py`, the URLs
    in `robots.txt` and `sitemap.xml`, and rebuild.
 
-2. **Decide how quote requests arrive.** The site has no server, so the quote form
+2. **Switch email over once the company mailboxes work.** The site lists
+   Info@, CEO@ and Jallabah.JamesK@peaklogisticsservices.com, but those addresses can
+   only receive mail after the domain is registered and email hosting is set up for it
+   (for example Google Workspace, Zoho Mail or your registrar's email). Until then the
+   quote form, the email buttons and the top bar send to the Gmail address, which is
+   also still listed. When the new mailboxes are working, set
+   `EMAIL = 'Info@peaklogisticsservices.com'` in `tools/common.py` and rebuild; the Gmail
+   address then drops off the lists automatically. Test by sending an email to each
+   address first.
+
+3. **Decide how quote requests arrive.** The site has no server, so the quote form
    writes the request out and hands it to the visitor's **WhatsApp** or **email app**,
    addressed to the company — the visitor just presses send. Nothing is stored on the
    site. With JavaScript switched off it falls back to a plain email form.
@@ -83,24 +93,24 @@ then run the build.
    such as [Formspree](https://formspree.io) and remove the send buttons' handler at
    the end of `assets/js/main.js`.
 
-3. **Swap in your own photographs over time.** The current set is illustrative; the
+4. **Swap in your own photographs over time.** The current set is illustrative; the
    captions describe what is shown rather than calling it "our team" or "our
    warehouse". Genuine photos of your own
    trucks, yard, staff and office will still build the most trust — replace the
    masters one at a time as you take them (landscape, at least 1400px wide).
 
-4. **Keep the figures true, and add more proof as you gather it.** The homepage
+5. **Keep the figures true, and add more proof as you gather it.** The homepage
    figures are in `STATS` in `tools/common.py`; update them as they change (for example,
    500+ shipments). Client testimonials, partner logos and licences would strengthen the
    site further.
 
-5. **Opening hours** were not in the profile either, so none are published.
+6. **Opening hours** were not in the profile either, so none are published.
 
-6. **Map pin.** The contact-page map marks the Freeport of Monrovia and is labelled
+7. **Map pin.** The contact-page map marks the Freeport of Monrovia and is labelled
    as approximate. For the exact office, change the `marker=` coordinates in
    `tools/build.py` and rebuild.
 
-7. **Social links** point to `facebook.com/peaklogisticsservices` and
+8. **Social links** point to `facebook.com/peaklogisticsservices` and
    `instagram.com/peaklogisticsservices`, based on the `@peaklogisticsservices` handle.
    Correct `FB` and `IG` in `tools/common.py` if the real pages differ.
 

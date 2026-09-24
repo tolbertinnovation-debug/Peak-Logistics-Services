@@ -591,7 +591,8 @@ def contact():
           <ul class="cinfo">
             <li><span>{ico("whatsapp")}</span><div><small>WhatsApp</small><a href="{WA}" rel="noopener">{TEL_H}</a></div></li>
             <li><span>{ico("phone")}</span><div><small>Phone</small><a href="tel:{TEL}">{TEL_H}</a></div></li>
-            <li><span>{ico("mail")}</span><div><small>Email</small><a href="mailto:{EMAIL}">{EMAIL_WBR}</a></div></li>
+            <li><span>{ico("mail")}</span><div><small>Email</small>
+              <ul class="elist">{''.join(f'<li>{email_link(e)}<em>{who}</em></li>' for who, e in EMAILS)}</ul></div></li>
             <li><span>{ico("pin")}</span><div><small>Office</small><address>{ADDR_HTML}</address></div></li>
             <li><span>{ico("instagram")}</span><div><small>Social</small><a href="{IG}" rel="noopener">@peaklogisticsservices</a></div></li>
           </ul>

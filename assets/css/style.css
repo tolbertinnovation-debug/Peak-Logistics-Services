@@ -1109,13 +1109,17 @@ body.nav-open { overflow: hidden; }
 .card-dark { padding: 1.6rem; border-radius: var(--r-lg); background: var(--night); color: var(--on-dark); }
 .card-dark h2 { color: #fff; font-size: 1.35rem; }
 .cinfo { list-style: none; display: grid; gap: 0; margin-top: 1.25rem; }
-.cinfo li { display: grid; grid-template-columns: 40px 1fr; gap: .9rem; padding: .95rem 0; border-top: 1px solid var(--line-dark); }
-.cinfo li > span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 197, 24, .12); color: var(--gold-hi); }
+.cinfo > li { display: grid; grid-template-columns: 40px 1fr; gap: .9rem; padding: .95rem 0; border-top: 1px solid var(--line-dark); }
+.cinfo > li > span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 197, 24, .12); color: var(--gold-hi); }
 .cinfo svg { width: 19px; height: 19px; }
 .cinfo small { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-3); }
 .cinfo a, .cinfo b { display: block; margin-top: .15rem; color: #fff; font-weight: 620; text-decoration: none; overflow-wrap: anywhere; }
 .cinfo a:hover { color: var(--gold-hi); }
 .cinfo address { margin-top: .15rem; font-style: normal; color: #fff; font-weight: 520; line-height: 1.5; }
+.elist { list-style: none; display: grid; gap: .75rem; margin-top: .35rem; }
+.elist a { margin-top: 0; }
+.elist em { display: block; margin-top: .1rem; font-style: normal; font-size: .82rem; color: var(--on-dark-2); }
+.ftr__email a { overflow-wrap: anywhere; }
 .card-light { padding: 1.5rem; border-radius: var(--r-lg); background: var(--white); border: 1px solid var(--line); }
 .card-light h2 { font-size: 1.15rem; }
 .card-light p { margin-top: .5rem; color: var(--muted); font-size: .95rem; }

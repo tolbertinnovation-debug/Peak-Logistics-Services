@@ -13,6 +13,22 @@ WA_NUM = '231886826289'
 WA = 'https://wa.me/' + WA_NUM
 EMAIL = 'peaklogisticsservices@gmail.com'
 EMAIL_WBR = 'peaklogisticsservices<wbr>@gmail.com'   # display only: breaks cleanly before the @
+# EMAIL above is the address that actually receives mail today: the quote form, email
+# buttons, top bar and search-engine data all use it. Once the company mailboxes below
+# are working, change EMAIL to 'Info@peaklogisticsservices.com' and rebuild.
+
+# Company email addresses, listed on the contact page and in every page footer.
+EMAILS = [
+    ('General enquiries',       'Info@peaklogisticsservices.com'),
+    ('Chief Executive Officer', 'CEO@peaklogisticsservices.com'),
+    ('James K. Jallabah',       'Jallabah.JamesK@peaklogisticsservices.com'),
+]
+if EMAIL not in [e for _, e in EMAILS]:
+    EMAILS.append(('Gmail', EMAIL))
+
+def email_link(addr):
+    # <wbr> lets a long address break before the @ on narrow screens instead of mid-word.
+    return f'<a href="mailto:{addr}">{addr.replace("@", "<wbr>@")}</a>'
 FB = 'https://www.facebook.com/peaklogisticsservices'
 IG = 'https://www.instagram.com/peaklogisticsservices'
 TAGLINE = 'Your Cargo, Our Commitment. Reaching New Heights in Liberia.'
@@ -303,7 +319,7 @@ def footer():
         <address>{ADDR_HTML}</address>
         <ul style="margin-top:1.1rem">
           <li><a href="tel:{TEL}">{TEL_H}</a></li>
-          <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
+{chr(10).join(f'          <li class="ftr__email">{email_link(e)}</li>' for _, e in EMAILS)}
           <li><a href="{IG}" rel="noopener">@peaklogisticsservices</a></li>
         </ul>
       </div>
