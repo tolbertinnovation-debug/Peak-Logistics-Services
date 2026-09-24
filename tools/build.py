@@ -46,7 +46,7 @@ def svc_explorer():
     </div>'''
 
 
-def netmap():
+def netmap(hero=False):
     vb = PTS['viewBox']
     mx, my = PTS['monrovia']
     hubs = [('asia', 'Asia', 'end', 0, -16), ('middleEast', 'Middle East', 'middle', 0, -16),
@@ -66,7 +66,8 @@ def netmap():
                        f'<set attributeName="visibility" to="visible" begin="m{i}.begin"/>'
                        f'<animateMotion id="m{i}" dur="{2.6 + i * 0.35:.2f}s" repeatCount="indefinite" begin="indefinite">'
                        f'<mpath href="#arc-{k}"/></animateMotion></circle>')
-    return f'''      <figure class="netmap rv" style="margin:0">
+    cls = 'netmap netmap--hero' if hero else 'netmap rv'
+    return f'''      <figure class="{cls}" style="margin:0">
         <svg viewBox="{' '.join(map(str, vb))}" role="img" aria-labelledby="map-t">
           <title id="map-t">World map with freight lanes from Asia, the Middle East, Europe, the Americas and West Africa converging on Monrovia, Liberia</title>
           <image href="assets/img/world-dots.svg" x="{vb[0]}" y="{vb[1]}" width="{vb[2]}" height="{vb[3]}"/>
@@ -175,9 +176,9 @@ def home():
     body = f'''{header('index.html')}
 <main id="main">
 
-  <section class="hero">
-    <div class="wrap hero__grid">
-      <div>
+  <section class="hero hero--map">
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
         <p class="pill"><span class="pulse"></span>Opposite the Freeport of Monrovia</p>
         <h1 class="h-display">Your cargo. <span class="gold">Our commitment.</span></h1>
         <p class="hero__lead">Freight forwarding, customs clearing and supply chain management for businesses in Liberia — by air, sea, road and rail, with every document handled end to end.</p>
@@ -187,22 +188,9 @@ def home():
         </div>
         <ul class="modes" aria-label="Transport modes">{modes}</ul>
       </div>
-      <div class="hero__vis">
-        <span class="hero__corner" aria-hidden="true"></span>
-        <div class="hero__photo">
-          {pic("port-crane-tall", "A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay.", "(min-width: 1000px) 40vw, 100vw", eager=True)}
-          <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
-        </div>
-        <div class="journey-card" aria-label="How a shipment moves with us">
-          <p class="journey-card__h"><span>How your cargo moves</span><span>Origin → Door</span></p>
-          <ol class="jc-steps">
-            <li><span class="jc-dot">{ico("check")}</span>Freight booked<small>AIR · SEA · ROAD</small></li>
-            <li><span class="jc-dot">{ico("check")}</span>Documents prepared<small>B/L · INV · COO</small></li>
-            <li><span class="jc-dot">{ico("check")}</span>Customs cleared<small>DUTIES · TAX</small></li>
-            <li><span class="jc-dot">{ico("check")}</span>Delivered<small>TO YOUR DOOR</small></li>
-          </ol>
-        </div>
-      </div>
+    </div>
+    <div class="hero__map">
+{netmap(hero=True)}
     </div>
   </section>
 
@@ -236,13 +224,31 @@ def home():
     </div>
   </section>
 
-  <section class="sec sec--dark" aria-labelledby="reach-h">
-    <div class="wrap">
-      <div class="head head--split">
-        <div>{tag("03", "Reach")}<h2 class="h2" id="reach-h">From the world’s trade hubs to Bushrod Island.</h2></div>
-        <p class="lead">Global shipping support and shipment tracking until your cargo lands in Liberia — then onward delivery across Liberia and beyond.</p>
+  <section class="sec sec--dark sec--clip" aria-labelledby="reach-h">
+    <div class="wrap split reach">
+      <div>
+        {tag("03", "Reach")}
+        <h2 class="h2" id="reach-h">From the world’s trade hubs to <span class="gold">Liberia.</span></h2>
+        <p class="lead" style="margin-top:1.25rem">Global shipping support and shipment tracking until your cargo lands in Liberia — then onward delivery across Liberia and beyond.</p>
       </div>
-{netmap()}
+      <div class="hero__vis rv">
+        <span class="hero__corner" aria-hidden="true"></span>
+        <div class="hero__photo">
+          {pic("port-crane-tall", "A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay.", "(min-width: 960px) 44vw, 100vw")}
+          <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
+        </div>
+        <div class="journey-card" aria-label="How a shipment moves with us">
+          <p class="journey-card__h"><span>How your cargo moves</span><span>Origin → Door</span></p>
+          <ol class="jc-steps">
+            <li><span class="jc-dot">{ico("check")}</span>Freight booked<small>AIR · SEA · ROAD</small></li>
+            <li><span class="jc-dot">{ico("check")}</span>Documents prepared<small>B/L · INV · COO</small></li>
+            <li><span class="jc-dot">{ico("check")}</span>Customs cleared<small>DUTIES · TAX</small></li>
+            <li><span class="jc-dot">{ico("check")}</span>Delivered<small>TO YOUR DOOR</small></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
       {modegrid()}
     </div>
   </section>

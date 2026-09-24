@@ -259,9 +259,9 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="wrap hero__grid">
-      <div>
+  <section class="hero hero--map">
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
         <p class="pill"><span class="pulse"></span>Opposite the Freeport of Monrovia</p>
         <h1 class="h-display">Your cargo. <span class="gold">Our commitment.</span></h1>
         <p class="hero__lead">Freight forwarding, customs clearing and supply chain management for businesses in Liberia — by air, sea, road and rail, with every document handled end to end.</p>
@@ -271,22 +271,22 @@
         </div>
         <ul class="modes" aria-label="Transport modes"><li><svg aria-hidden="true"><use href="#i-plane"></use></svg>AIR</li><li><svg aria-hidden="true"><use href="#i-ship"></use></svg>SEA</li><li><svg aria-hidden="true"><use href="#i-truck"></use></svg>ROAD</li><li><svg aria-hidden="true"><use href="#i-train"></use></svg>RAIL</li></ul>
       </div>
-      <div class="hero__vis">
-        <span class="hero__corner" aria-hidden="true"></span>
-        <div class="hero__photo">
-          <picture><source type="image/webp" srcset="assets/img/photos/port-crane-tall-640.webp 640w, assets/img/photos/port-crane-tall-818.webp 818w" sizes="(min-width: 1000px) 40vw, 100vw"><img src="assets/img/photos/port-crane-tall-640.jpg" srcset="assets/img/photos/port-crane-tall-640.jpg 640w, assets/img/photos/port-crane-tall-818.jpg 818w" sizes="(min-width: 1000px) 40vw, 100vw" width="818" height="941" alt="A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay." fetchpriority="high" decoding="async"></picture>
-          <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
-        </div>
-        <div class="journey-card" aria-label="How a shipment moves with us">
-          <p class="journey-card__h"><span>How your cargo moves</span><span>Origin → Door</span></p>
-          <ol class="jc-steps">
-            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Freight booked<small>AIR · SEA · ROAD</small></li>
-            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Documents prepared<small>B/L · INV · COO</small></li>
-            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Customs cleared<small>DUTIES · TAX</small></li>
-            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Delivered<small>TO YOUR DOOR</small></li>
-          </ol>
-        </div>
-      </div>
+    </div>
+    <div class="hero__map">
+      <figure class="netmap netmap--hero" style="margin:0">
+        <svg viewBox="0 9 1600 687" role="img" aria-labelledby="map-t">
+          <title id="map-t">World map with freight lanes from Asia, the Middle East, Europe, the Americas and West Africa converging on Monrovia, Liberia</title>
+          <image href="assets/img/world-dots.svg" x="0" y="9" width="1600" height="687"/>
+          <g><path class="arc-trail" d="M1274 251.2Q995.9 132.0 717.8 377.8"/><path class="arc-trail" d="M1000.1 282.9Q859.0 235.0 717.8 377.8"/><path class="arc-trail" d="M785.4 147.1Q751.6 185.5 717.8 377.8"/><path class="arc-trail" d="M469.7 203Q593.8 193.3 717.8 377.8"/><path class="arc-trail" d="M568.4 531.7Q643.1 386.1 717.8 377.8"/><path class="arc-trail" d="M779.8 377.3Q748.8 337.6 717.8 377.8"/></g>
+          <g><path class="arc" id="arc-asia" d="M1274 251.2Q995.9 132.0 717.8 377.8"/><path class="arc" id="arc-middleEast" d="M1000.1 282.9Q859.0 235.0 717.8 377.8"/><path class="arc" id="arc-europe" d="M785.4 147.1Q751.6 185.5 717.8 377.8"/><path class="arc" id="arc-americas" d="M469.7 203Q593.8 193.3 717.8 377.8"/><path class="arc" id="arc-southAm" d="M568.4 531.7Q643.1 386.1 717.8 377.8"/><path class="arc" id="arc-westAfrica" d="M779.8 377.3Q748.8 337.6 717.8 377.8"/></g>
+          <g><circle class="hub" cx="1274" cy="251.2" r="6"/><text class="hub-label" x="1274" y="235.2" text-anchor="end">Asia</text><circle class="hub" cx="1000.1" cy="282.9" r="6"/><text class="hub-label" x="1000.1" y="266.9" text-anchor="middle">Middle East</text><circle class="hub" cx="785.4" cy="147.1" r="6"/><text class="hub-label" x="785.4" y="131.1" text-anchor="middle">Europe</text><circle class="hub" cx="469.7" cy="203" r="6"/><text class="hub-label" x="469.7" y="187" text-anchor="middle">Americas</text><circle class="hub" cx="568.4" cy="531.7" r="6"/><text class="hub-label" x="568.4" y="561.7" text-anchor="middle">South America</text><circle class="hub" cx="779.8" cy="377.3" r="6"/><text class="hub-label" x="793.8" y="382.3" text-anchor="start">West Africa</text></g>
+          <g><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m0.begin"/><animateMotion id="m0" dur="2.60s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-asia"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m1.begin"/><animateMotion id="m1" dur="2.95s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-middleEast"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m2.begin"/><animateMotion id="m2" dur="3.30s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-europe"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m3.begin"/><animateMotion id="m3" dur="3.65s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-americas"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m4.begin"/><animateMotion id="m4" dur="4.00s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-southAm"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m5.begin"/><animateMotion id="m5" dur="4.35s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-westAfrica"/></animateMotion></circle></g>
+          <circle class="home-ring" cx="717.8" cy="377.8" r="14"/><circle class="home-ring r2" cx="717.8" cy="377.8" r="14"/>
+          <circle class="home-dot" cx="717.8" cy="377.8" r="7"/>
+          <text class="home-label" x="699.8" y="411.8" text-anchor="end">Monrovia</text>
+          <text class="home-sub" x="699.8" y="431.8" text-anchor="end">Freeport · Bushrod Island</text>
+        </svg>
+      </figure>
     </div>
   </section>
 
@@ -406,26 +406,31 @@
     </div>
   </section>
 
-  <section class="sec sec--dark" aria-labelledby="reach-h">
-    <div class="wrap">
-      <div class="head head--split">
-        <div><p class="tag"><b>[03]</b> Reach</p><h2 class="h2" id="reach-h">From the world’s trade hubs to Bushrod Island.</h2></div>
-        <p class="lead">Global shipping support and shipment tracking until your cargo lands in Liberia — then onward delivery across Liberia and beyond.</p>
+  <section class="sec sec--dark sec--clip" aria-labelledby="reach-h">
+    <div class="wrap split reach">
+      <div>
+        <p class="tag"><b>[03]</b> Reach</p>
+        <h2 class="h2" id="reach-h">From the world’s trade hubs to <span class="gold">Liberia.</span></h2>
+        <p class="lead" style="margin-top:1.25rem">Global shipping support and shipment tracking until your cargo lands in Liberia — then onward delivery across Liberia and beyond.</p>
       </div>
-      <figure class="netmap rv" style="margin:0">
-        <svg viewBox="0 9 1600 687" role="img" aria-labelledby="map-t">
-          <title id="map-t">World map with freight lanes from Asia, the Middle East, Europe, the Americas and West Africa converging on Monrovia, Liberia</title>
-          <image href="assets/img/world-dots.svg" x="0" y="9" width="1600" height="687"/>
-          <g><path class="arc-trail" d="M1274 251.2Q995.9 132.0 717.8 377.8"/><path class="arc-trail" d="M1000.1 282.9Q859.0 235.0 717.8 377.8"/><path class="arc-trail" d="M785.4 147.1Q751.6 185.5 717.8 377.8"/><path class="arc-trail" d="M469.7 203Q593.8 193.3 717.8 377.8"/><path class="arc-trail" d="M568.4 531.7Q643.1 386.1 717.8 377.8"/><path class="arc-trail" d="M779.8 377.3Q748.8 337.6 717.8 377.8"/></g>
-          <g><path class="arc" id="arc-asia" d="M1274 251.2Q995.9 132.0 717.8 377.8"/><path class="arc" id="arc-middleEast" d="M1000.1 282.9Q859.0 235.0 717.8 377.8"/><path class="arc" id="arc-europe" d="M785.4 147.1Q751.6 185.5 717.8 377.8"/><path class="arc" id="arc-americas" d="M469.7 203Q593.8 193.3 717.8 377.8"/><path class="arc" id="arc-southAm" d="M568.4 531.7Q643.1 386.1 717.8 377.8"/><path class="arc" id="arc-westAfrica" d="M779.8 377.3Q748.8 337.6 717.8 377.8"/></g>
-          <g><circle class="hub" cx="1274" cy="251.2" r="6"/><text class="hub-label" x="1274" y="235.2" text-anchor="end">Asia</text><circle class="hub" cx="1000.1" cy="282.9" r="6"/><text class="hub-label" x="1000.1" y="266.9" text-anchor="middle">Middle East</text><circle class="hub" cx="785.4" cy="147.1" r="6"/><text class="hub-label" x="785.4" y="131.1" text-anchor="middle">Europe</text><circle class="hub" cx="469.7" cy="203" r="6"/><text class="hub-label" x="469.7" y="187" text-anchor="middle">Americas</text><circle class="hub" cx="568.4" cy="531.7" r="6"/><text class="hub-label" x="568.4" y="561.7" text-anchor="middle">South America</text><circle class="hub" cx="779.8" cy="377.3" r="6"/><text class="hub-label" x="793.8" y="382.3" text-anchor="start">West Africa</text></g>
-          <g><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m0.begin"/><animateMotion id="m0" dur="2.60s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-asia"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m1.begin"/><animateMotion id="m1" dur="2.95s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-middleEast"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m2.begin"/><animateMotion id="m2" dur="3.30s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-europe"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m3.begin"/><animateMotion id="m3" dur="3.65s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-americas"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m4.begin"/><animateMotion id="m4" dur="4.00s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-southAm"/></animateMotion></circle><circle class="runner" r="4" visibility="hidden"><set attributeName="visibility" to="visible" begin="m5.begin"/><animateMotion id="m5" dur="4.35s" repeatCount="indefinite" begin="indefinite"><mpath href="#arc-westAfrica"/></animateMotion></circle></g>
-          <circle class="home-ring" cx="717.8" cy="377.8" r="14"/><circle class="home-ring r2" cx="717.8" cy="377.8" r="14"/>
-          <circle class="home-dot" cx="717.8" cy="377.8" r="7"/>
-          <text class="home-label" x="699.8" y="411.8" text-anchor="end">Monrovia</text>
-          <text class="home-sub" x="699.8" y="431.8" text-anchor="end">Freeport · Bushrod Island</text>
-        </svg>
-      </figure>
+      <div class="hero__vis rv">
+        <span class="hero__corner" aria-hidden="true"></span>
+        <div class="hero__photo">
+          <picture><source type="image/webp" srcset="assets/img/photos/port-crane-tall-640.webp 640w, assets/img/photos/port-crane-tall-818.webp 818w" sizes="(min-width: 960px) 44vw, 100vw"><img src="assets/img/photos/port-crane-tall-640.jpg" srcset="assets/img/photos/port-crane-tall-640.jpg 640w, assets/img/photos/port-crane-tall-818.jpg 818w" sizes="(min-width: 960px) 44vw, 100vw" width="818" height="941" alt="A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay." loading="lazy" decoding="async"></picture>
+          <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
+        </div>
+        <div class="journey-card" aria-label="How a shipment moves with us">
+          <p class="journey-card__h"><span>How your cargo moves</span><span>Origin → Door</span></p>
+          <ol class="jc-steps">
+            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Freight booked<small>AIR · SEA · ROAD</small></li>
+            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Documents prepared<small>B/L · INV · COO</small></li>
+            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Customs cleared<small>DUTIES · TAX</small></li>
+            <li><span class="jc-dot"><svg aria-hidden="true"><use href="#i-check"></use></svg></span>Delivered<small>TO YOUR DOOR</small></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
       <div class="modegrid rv"><div class="mode"><svg aria-hidden="true"><use href="#i-plane"></use></svg><span class="mode__code">AIR</span><h3>Air freight</h3><p>For urgent, high-value or time-critical consignments that cannot wait on a vessel.</p></div><div class="mode"><svg aria-hidden="true"><use href="#i-ship"></use></svg><span class="mode__code">SEA</span><h3>Sea freight</h3><p>Container cargo through the Freeport of Monrovia — the workhorse for volume.</p></div><div class="mode"><svg aria-hidden="true"><use href="#i-truck"></use></svg><span class="mode__code">ROAD</span><h3>Road transport</h3><p>Cargo delivery across Liberia and beyond, including the last mile to your door.</p></div><div class="mode"><svg aria-hidden="true"><use href="#i-train"></use></svg><span class="mode__code">RAIL</span><h3>Rail freight</h3><p>Heavy and bulk movements coordinated wherever the rail corridor supports them.</p></div></div>
     </div>
   </section>
@@ -576,7 +581,7 @@
         </ul>
       </div>
     </div>
-    <svg class="ftr__big" viewBox="0 0 1200 128" aria-hidden="true" focusable="false"><text x="2" y="122" textLength="1196" lengthAdjust="spacingAndGlyphs"><tspan>PEAK</tspan> LOGISTICS</text></svg>
+    <svg class="ftr__big" viewBox="0 0 1962 128" aria-hidden="true" focusable="false"><text x="2" y="122" textLength="1958" lengthAdjust="spacingAndGlyphs"><tspan>PEAK</tspan> LOGISTICS SERVICES</text></svg>
     <div class="ftr__bottom">
       <p>&copy; <span data-year>2026</span> Peak Logistics Services. All rights reserved. <span class="ftr__credit">Powered by <a href="https://tolbertinnovationhub.org" rel="noopener">Tolbert Innovation Hub</a>.</span></p>
       <p class="tagline">Your Cargo, Our Commitment. Reaching New Heights in Liberia.</p>

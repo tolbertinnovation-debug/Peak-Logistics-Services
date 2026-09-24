@@ -347,6 +347,8 @@ h3, h4 { font-stretch: 100%; line-height: 1.2; letter-spacing: -.015em; font-wei
 .nav__extra { display: none; }
 body.nav-open { overflow: hidden; }
 @media (max-width: 400px) { .brand__sub { display: none; } .brand__name { font-size: 1rem; } }
+.brand__name { white-space: nowrap; }
+@media (max-width: 360px) { .brand img { width: 44px; } .brand__name { font-size: .94rem; } }
 
 /* ------------------------------------------------------------------ Hero */
 
@@ -466,6 +468,38 @@ body.nav-open { overflow: hidden; }
   .modes li:nth-child(3) { padding-left: 0; border-left: 0; }
   .modes li:nth-child(n+3) { border-top: 1px solid var(--line-dark); margin-top: 1rem; }
 }
+
+/* Hero with the route map as its visual (homepage) */
+.hero--map { display: grid; align-items: center; min-height: clamp(600px, calc(100vh - 120px), 820px); }
+.hero--map::before { display: none; }
+.hero__inner { position: relative; z-index: 1; }
+.hero__copy { max-width: 38rem; }
+.hero__map { position: relative; margin-top: clamp(2rem, 5vw, 3rem); }
+@media (min-width: 1000px) {
+  .hero__map { position: absolute; inset: 0; z-index: 0; margin: 0; overflow: hidden; pointer-events: none; }
+  /* Liberia (44.86% across the map, 53.7% down) sits 72% across and just below middle */
+  .hero__map .netmap {
+    position: absolute; width: 125%; margin: 0 !important;
+    left: calc(72% - 125% * .4486); top: 54%; transform: translateY(-53.7%);
+  }
+  .hero__map::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, var(--night) 0%, rgba(6, 28, 19, .92) 30%, rgba(6, 28, 19, .5) 46%, rgba(6, 28, 19, 0) 60%),
+      linear-gradient(0deg, var(--night) 0%, rgba(6, 28, 19, 0) 16%);
+  }
+}
+
+/* Reach section: the port photo and shipment card, beside the heading */
+.reach { align-items: center; }
+/* The photo's gold corner deliberately overhangs by 12px; keep it from widening the page. */
+.sec--clip { overflow: hidden; }
+/* Grid items default to min-width:auto, so one long unbreakable line (the shipment card's
+   rows) could stretch the whole column past a narrow screen. */
+.split > * { min-width: 0; }
+@media (max-width: 400px) { .jc-steps li small { display: none; } }
+@media (min-width: 960px) { .reach .hero__vis { max-width: 520px; justify-self: end; width: 100%; } }
+.reach + .wrap .modegrid { margin-top: clamp(4rem, 8vw, 6rem); }
 
 /* ---------------------------------------------------------------- Ticker */
 
