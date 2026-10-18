@@ -336,15 +336,15 @@
   }
 
   function message() {
-    return 'Quote request — Peak Logistics Services\n\n' +
+    return 'Quote request for Peak Logistics Services\n\n' +
       rows().map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
   }
 
   function done(how) {
     status.hidden = false;
     status.textContent = how === 'wa'
-      ? 'WhatsApp should now be open with your request written out — just press send. If it did not open, message us on +231 886 826 289.'
-      : 'Your email app should now be open with the request filled in — just press send. If nothing opened, email ' + EMAIL + '.';
+      ? 'WhatsApp should now be open with your request written out. Just press Send. If it did not open, message us on +231 886 826 289.'
+      : 'Your email app should now be open with the request filled in. Just press Send. If nothing opened, email ' + EMAIL + '.';
     status.focus();
   }
 
@@ -362,7 +362,7 @@
     } else if (go === 'email') {
       done('email');
       window.location.href = 'mailto:' + EMAIL +
-        '?subject=' + encodeURIComponent('Quote request: ' + val('service') + ' — ' + val('name')) +
+        '?subject=' + encodeURIComponent('Quote request: ' + val('service') + ' for ' + val('name')) +
         '&body=' + encodeURIComponent(message());
     }
   });

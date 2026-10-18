@@ -172,7 +172,7 @@ def faq_ld():
 
 
 TICKER = ['Freight forwarding', 'Customs brokerage', 'Documentation', 'Supply chain management',
-          'Bonded warehousing', 'Cross-trade', 'Last-mile delivery', 'Air · Sea · Road · Rail']
+          'Bonded warehousing', 'Cross trade', 'Last mile delivery', 'Air · Sea · Road · Rail']
 
 def ticker():
     items = ''.join(f'<li>{t}</li>' for t in TICKER)
@@ -193,7 +193,7 @@ def home():
       <div class="hero__copy">
         <p class="pill"><span class="pulse"></span>Opposite the Freeport of Monrovia</p>
         <h1 class="h-display">{metal('Your cargo.')} <span class="gold">{metal('Our commitment.', 'gold')}</span></h1>
-        <p class="hero__lead">Freight forwarding, customs clearing and supply chain management for businesses in Liberia — by air, sea, road and rail, with every document handled end to end.</p>
+        <p class="hero__lead">Freight forwarding, customs clearing and supply chain management for businesses in Liberia by air, sea, road and rail, with every document handled end to end.</p>
         <div class="btns">
           <a class="btn btn--gold" href="contact.html#quote">Get a quote {ico("arrow", "arr")}</a>
           <a class="btn btn--line-dark" href="{WA}" rel="noopener">{ico("whatsapp")} Chat on WhatsApp</a>
@@ -210,11 +210,11 @@ def home():
   <section class="sec sec--paper" aria-labelledby="intro-h">
     <div class="wrap">
       {tag("01", "Who we are")}
-      <h2 class="statement rv" id="intro-h">A full-service logistics company for Liberia. We move goods by <em>air, sea, road and rail</em> — and handle the <span class="u">customs and paperwork</span> in between.</h2>
+      <h2 class="statement rv" id="intro-h">A full service logistics company for Liberia. We move goods by <em>air, sea, road and rail</em> and handle the <span class="u">customs and paperwork</span> in between.</h2>
       <div class="pillars">
-        <div class="pillar rv"><p class="pillar__n">01 — EFFICIENCY</p><h3>The right route, first time</h3><p>We select the transport mode, route and carrier to suit your budget and deadline, then coordinate every handover along the way.</p></div>
-        <div class="pillar rv" style="--rd:.08s"><p class="pillar__n">02 — COMPLIANCE</p><h3>Cleared, not held</h3><p>We meet customs regulations and documentation requirements to help shipments clear without avoidable delays or penalties.</p></div>
-        <div class="pillar rv" style="--rd:.16s"><p class="pillar__n">03 — TIMELINESS</p><h3>One team, start to finish</h3><p>We follow your cargo from origin to destination, with one team responsible for getting it there on time.</p></div>
+        <div class="pillar rv"><p class="pillar__n">01: EFFICIENCY</p><h3>The right route, first time</h3><p>We select the transport mode, route and carrier to suit your budget and deadline, then coordinate every handover along the way.</p></div>
+        <div class="pillar rv" style="--rd:.08s"><p class="pillar__n">02: COMPLIANCE</p><h3>Cleared, not held</h3><p>We meet customs regulations and documentation requirements to help shipments clear without avoidable delays or penalties.</p></div>
+        <div class="pillar rv" style="--rd:.16s"><p class="pillar__n">03: TIMELINESS</p><h3>One team, start to finish</h3><p>We follow your cargo from origin to destination, with one team responsible for getting it there on time.</p></div>
       </div>
       {stats()}
     </div>
@@ -285,13 +285,13 @@ def home():
   <section class="sec sec--dark" aria-labelledby="why-h">
     <div class="wrap split split--rev">
       <div class="frame frame--tall rv">
-        {pic("fleet-tall", "A crew in high-visibility vests talks beside a white truck carrying a container, palm trees behind.", "(min-width: 960px) 44vw, 100vw")}
+        {pic("fleet-tall", "A crew in high visibility vests talks beside a white truck carrying a container, palm trees behind.", "(min-width: 960px) 44vw, 100vw")}
         <p class="frame__cap">One partner, every mode <span>Sea · Air · Road · Rail</span></p>
       </div>
       <div>
         {tag("06", "Why Peak")}
         <h2 class="h2" id="why-h">One partner instead of four.</h2>
-        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider, we manage the complexity so you can focus on your core business.</p>
+        <p class="lead" style="margin-top:1.25rem">As a one stop logistics provider, we manage the complexity so you can focus on your core business.</p>
         {adv_list()}
       </div>
     </div>
@@ -301,7 +301,7 @@ def home():
     <div class="wrap">
       <div class="head head--split">
         <div>{tag("07", "Who we serve")}<h2 class="h2" id="seg-h">Built for businesses of every size.</h2></div>
-        <p class="lead">Our solutions are tailored to diverse logistics needs across industries — whether you import a container a year or run a continuous supply line.</p>
+        <p class="lead">Our solutions are tailored to diverse logistics needs across industries, whether you import a container a year or run a continuous supply line.</p>
       </div>
       {segs()}
     </div>
@@ -320,7 +320,7 @@ def home():
       <div>
         {tag("08", "FAQ")}
         <h2 class="h2" id="faq-h">Questions we hear often.</h2>
-        <p class="lead" style="margin-top:1.25rem">Something else on your mind? Ask us directly — we are happy to talk it through.</p>
+        <p class="lead" style="margin-top:1.25rem">Something else on your mind? Ask us directly. We are happy to talk it through.</p>
         <div class="btns" style="margin-top:1.75rem">
           <a class="btn btn--green" href="{WA}" rel="noopener">{ico("whatsapp")} Ask on WhatsApp</a>
           <a class="btn btn--line" href="tel:{TEL}">{ico("phone")} Call us</a>
@@ -334,7 +334,7 @@ def home():
 </main>
 {footer()}'''
     return head('Peak Logistics Services | Freight Forwarding &amp; Customs Clearing in Liberia',
-                'Freight forwarding by air, sea, road and rail, customs clearing, documentation, warehousing and transportation — a full-service logistics company opposite the Freeport of Monrovia, Liberia.',
+                'Freight forwarding by air, sea, road and rail, customs clearing, documentation, warehousing and transportation from a full service logistics company opposite the Freeport of Monrovia, Liberia.',
                 'index.html', jsonld=[business_ld(), faq_ld()]) + body
 
 # --------------------------------------------------------------- services
@@ -370,7 +370,7 @@ def services():
     body = f'''{header('services.html')}
 <main id="main">
 {phero('Services', 'Services', 'Logistics for the whole value chain.',
-       'Six service lines, four transport modes and one point of contact — from your first enquiry through customs clearance to final delivery.', jump,
+       'Six service lines, four transport modes and one point of contact, from your first enquiry through customs clearance to final delivery.', jump,
        photo='fleet', pos='62% 60%')}
   <section class="sec sec--white" aria-label="Service lines">
     <div class="wrap">
@@ -393,7 +393,7 @@ def services():
   <section class="sec sec--dark" aria-labelledby="modes-h">
     <div class="wrap">
       <div class="head head--split">
-        <div>{tag("", "Transport modes")}<h2 class="h2" id="modes-h">Air, sea, road and rail — planned together.</h2></div>
+        <div>{tag("", "Transport modes")}<h2 class="h2" id="modes-h">Air, sea, road and rail, planned together.</h2></div>
         <p class="lead">We choose the combination that fits your cargo, your budget and your deadline, and coordinate every leg in between.</p>
       </div>
       {modegrid()}
@@ -413,8 +413,8 @@ def services():
 {cta_block()}
 </main>
 {footer()}'''
-    return head('Services | Freight Forwarding, Customs Brokerage &amp; Transport — Peak Logistics Services',
-                'Freight forwarding, customs brokerage, documentation, supply chain management, bonded warehousing, cross-trade and transportation across Liberia by air, sea, road and rail.',
+    return head('Services | Freight Forwarding, Customs Brokerage &amp; Transport | Peak Logistics Services',
+                'Freight forwarding, customs brokerage, documentation, supply chain management, bonded warehousing, cross trade and transportation across Liberia by air, sea, road and rail.',
                 'services.html', jsonld=[crumbs_ld('Services', 'services.html')]) + body
 
 # ------------------------------------------------------------------ about
@@ -423,7 +423,7 @@ def about():
     body = f'''{header('about.html')}
 <main id="main">
 {phero('About', 'About us', 'Reaching new heights in Liberia.',
-       'Peak Logistics Services is a full-service logistics company committed to delivering efficient, reliable and client-focused solutions across Liberia.',
+       'Peak Logistics Services is a full service logistics company committed to delivering efficient, reliable and client focused solutions across Liberia.',
        photo='highway-truck', pos='70% 55%')}
   <section class="sec sec--white" aria-labelledby="intro-h">
     <div class="wrap split">
@@ -431,7 +431,7 @@ def about():
         {tag("01", "Introduction")}
         <h2 class="h2" id="intro-h">Cargo moves. Paperwork follows. We handle both.</h2>
         <p class="lead" style="margin-top:1.25rem">We specialise in moving goods by air, sea, road and rail while ensuring full compliance with customs regulations and documentation requirements.</p>
-        <p style="margin-top:1rem;color:var(--muted)">Our operations cover the entire logistics value chain — from freight coordination and customs clearance to warehousing and final delivery. By combining industry expertise with local market knowledge, we keep cargo flowing smoothly from origin to destination, prioritising efficiency, compliance and timeliness.</p>
+        <p style="margin-top:1rem;color:var(--muted)">Our operations cover the entire logistics value chain, from freight coordination and customs clearance to warehousing and final delivery. By combining industry expertise with local market knowledge, we keep cargo flowing smoothly from origin to destination, prioritising efficiency, compliance and timeliness.</p>
         <div class="btns" style="margin-top:2rem">
           <a class="btn btn--green" href="{PDF}">{ico("download")} Company profile (PDF)</a>
           <a class="btn btn--line" href="services.html">Our services {ico("arrow", "arr")}</a>
@@ -459,7 +459,7 @@ def about():
       <div>
         {tag("04", "Strategic advantage")}
         <h2 class="h2" id="adv-h">Why clients consolidate with us.</h2>
-        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider, we let clients focus on their core business while we manage the complexities of their logistics operations.</p>
+        <p class="lead" style="margin-top:1.25rem">As a one stop logistics provider, we let clients focus on their core business while we manage the complexities of their logistics operations.</p>
       </div>
       {adv_list()}
     </div>
@@ -486,7 +486,7 @@ def about():
       </div>
       <div class="profile-card rv" style="margin-top:clamp(3rem,6vw,4.5rem)">
         <img class="profile-card__thumb" src="assets/img/company-flyer.jpg" width="820" height="1160" alt="" loading="lazy" decoding="async">
-        <div><h3>Company profile</h3><p>Services, mission, values and contact details in one document — ready to share with your team.</p></div>
+        <div><h3>Company profile</h3><p>Services, mission, values and contact details in one document, ready to share with your team.</p></div>
         <a class="btn btn--green" href="{PDF}">{ico("download")} Download</a>
       </div>
     </div>
@@ -496,7 +496,7 @@ def about():
 </main>
 {footer()}'''
     return head('About Us | Peak Logistics Services, Monrovia, Liberia',
-                'Our mission, vision, core values and the strategic advantage behind Peak Logistics Services — a full-service logistics company on Bushrod Island, Monrovia.',
+                'Our mission, vision, core values and the strategic advantage behind Peak Logistics Services, a full service logistics company on Bushrod Island, Monrovia.',
                 'about.html', jsonld=[crumbs_ld('About', 'about.html')]) + body
 
 # ---------------------------------------------------------------- contact
@@ -505,7 +505,7 @@ def contact():
     svc = ''.join(
         f'<label class="choice"><input type="radio" name="service" value="{s["title"]}" data-slug="{s["slug"]}"{" required" if i == 0 else ""}>'
         f'<span>{ico(s["icon"])}{s["title"]}</span></label>' for i, s in enumerate(SERVICES))
-    svc += f'<label class="choice"><input type="radio" name="service" value="Not sure yet — please advise"><span>{ico("question")}Not sure yet</span></label>'
+    svc += f'<label class="choice"><input type="radio" name="service" value="Not sure yet, please advise"><span>{ico("question")}Not sure yet</span></label>'
     modes = ''.join(f'<label class="choice"><input type="checkbox" name="mode" value="{t.split()[0]}"><span>{ico(i)}{t.split()[0]}</span></label>'
                     for i, t, c, d in MODES)
     reply = ''.join(f'<label class="choice"><input type="radio" name="reply" value="{v}"{" checked" if n == 0 else ""}><span>{ico(ic)}{v}</span></label>'
@@ -534,7 +534,7 @@ def contact():
               data-wa="{WA_NUM}" data-email="{EMAIL}">
 
           <fieldset data-step="1">
-            <legend>What do you need?<small>Pick the closest match — you can explain the details later.</small></legend>
+            <legend>What do you need?<small>Pick the closest match. You can explain the details later.</small></legend>
             <fieldset class="grp"><legend>Service{R}</legend><div class="choices">{svc}</div></fieldset>
             <fieldset class="grp"><legend>Transport mode{O}</legend><div class="chips">{modes}</div></fieldset>
             <div class="wiz__nav"><div class="right">{nextb}</div></div>
@@ -547,10 +547,10 @@ def contact():
               <div class="fld"><label class="lbl" for="destination">Delivery location{R}</label><input id="destination" name="destination" required placeholder="e.g. Monrovia, Liberia" autocomplete="off"></div>
             </div>
             <div class="fields" style="margin-top:1.1rem">
-              <div class="fld"><label class="lbl" for="cargo">What are you shipping?{R}</label><textarea id="cargo" name="cargo" required placeholder="e.g. two 40-foot containers of building materials"></textarea></div>
+              <div class="fld"><label class="lbl" for="cargo">What are you shipping?{R}</label><textarea id="cargo" name="cargo" required placeholder="e.g. two 40 foot containers of building materials"></textarea></div>
             </div>
             <div class="fields fields--2" style="margin-top:1.1rem">
-              <div class="fld"><label class="lbl" for="size">Weight or volume{O}</label><input id="size" name="size" placeholder="e.g. 18 tonnes or two 40-foot containers"></div>
+              <div class="fld"><label class="lbl" for="size">Weight or volume{O}</label><input id="size" name="size" placeholder="e.g. 18 tonnes or two 40 foot containers"></div>
               <div class="fld"><label class="lbl" for="ready">Date ready to ship{O}</label><input id="ready" name="ready" type="date"></div>
             </div>
             <div class="wiz__nav">{backb}<div class="right">{nextb}</div></div>
@@ -616,7 +616,7 @@ def contact():
     <div class="wrap">
       <div class="head head--split">
         <div>{tag("", "Find us")}<h2 class="h2" id="map-h">Opposite the Freeport of Monrovia.</h2></div>
-        <p class="lead">Behind the CONEX gas station on Bushrod Island — minutes from where your containers land.</p>
+        <p class="lead">Behind the CONEX gas station on Bushrod Island, minutes from where your containers land.</p>
       </div>
       <div class="mapbox">
         <div class="mapbox__card">
@@ -657,7 +657,7 @@ def notfound():
 </main>
 {footer()}'''
     return head('Page not found | Peak Logistics Services',
-                'The page you were looking for could not be found. Return to Peak Logistics Services — freight forwarding and customs clearing in Monrovia, Liberia.',
+                'The page you were looking for could not be found. Return to Peak Logistics Services for freight forwarding and customs clearing in Monrovia, Liberia.',
                 '404.html', noindex=True) + body
 
 

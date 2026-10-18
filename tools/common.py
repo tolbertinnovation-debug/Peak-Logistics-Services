@@ -111,37 +111,37 @@ SERVICES = [
          blurb='Every shipment carries a paper trail. We prepare it correctly the first time and manage it from booking through to final delivery.',
          detail='We prepare commercial invoices, bills of lading, certificates of origin and packing lists, check them for consistency and manage them from start to finish to help prevent paperwork delays.',
          bullets=['Commercial invoices and bills of lading', 'Certificates of origin and packing lists',
-                  'End-to-end documentation management'],
+                  'End to end documentation management'],
          tags=['B/L', 'Invoice', 'COO', 'Packing list']),
     dict(slug='supply-chain', photo='warehouse-aisle', alt='Two staff review stock on a tablet in a racked warehouse aisle as a forklift moves a pallet.', icon='chain', title='Supply Chain Management', short='Supply chain',
-         blurb='Beyond individual shipments, we help you plan the flow of goods — how much stock to hold, where to store it and how to deliver it to your customers.',
+         blurb='Beyond individual shipments, we help you plan the flow of goods, including how much stock to hold, where to store it and how to deliver it to your customers.',
          detail='For clients who move goods regularly, we plan logistics, advise on stock levels and coordinate warehousing and distribution so that goods are available where they are needed.',
          bullets=['Logistics planning and advisory services', 'Inventory control and coordination',
                   'Warehousing and distribution solutions'],
          tags=['Planning', 'Inventory', 'Warehousing']),
     dict(slug='specialised', photo='sealed-container', alt='A forklift loads wrapped pallets beside a container door closed with a yellow security seal.', icon='warehouse', title='Specialised Logistics', short='Specialised logistics',
          blurb='We handle specialised logistics needs, including goods held under bond, trade between third countries and delivery to the final address.',
-         detail='Some consignments require special handling. We manage bonded storage while duties are pending, cross-trade shipments that do not pass through Liberia and last-mile delivery to your door.',
-         bullets=['Bonded warehousing', 'Cross-trade operations', 'Last-mile delivery solutions'],
-         tags=['Bonded', 'Cross-trade', 'Last mile']),
+         detail='Some consignments require special handling. We manage bonded storage while duties are pending, cross trade shipments that do not pass through Liberia and last mile delivery to your door.',
+         bullets=['Bonded warehousing', 'Cross trade operations', 'Last mile delivery solutions'],
+         tags=['Bonded', 'Cross trade', 'Last mile']),
     dict(slug='transportation', photo='highway-truck', alt='A white truck carrying an orange container on an open road lined with palm trees.', icon='truck', title='Transportation Services', short='Transportation',
          blurb='We provide reliable, flexible cargo delivery across Liberia and beyond, tailored to what you are shipping and when it needs to arrive.',
-         detail='We arrange transport around your cargo, your route and your timetable — from a single delivery across Monrovia to regular movements inland and beyond the border.',
+         detail='We arrange transport around your cargo, your route and your timetable, from a single delivery across Monrovia to regular movements inland and beyond the border.',
          bullets=['Reliable and flexible cargo delivery', 'Customised transport solutions based on client needs',
                   'Deliveries across Liberia and beyond'],
          tags=['Liberia', 'Regional', 'Door to door']),
 ]
 
 MODES = [
-    ('plane', 'Air freight', 'AIR', 'For urgent, high-value or time-critical consignments that cannot wait for sea transport.'),
-    ('ship', 'Sea freight', 'SEA', 'Container shipping through the Freeport of Monrovia for large-volume consignments.'),
+    ('plane', 'Air freight', 'AIR', 'For urgent, high value or time critical consignments that cannot wait for sea transport.'),
+    ('ship', 'Sea freight', 'SEA', 'Container shipping through the Freeport of Monrovia for large volume consignments.'),
     ('truck', 'Road transport', 'ROAD', 'Cargo delivery across Liberia and beyond, including the last mile to your door.'),
     ('train', 'Rail freight', 'RAIL', 'Transport for heavy and bulk cargo, coordinated where rail infrastructure supports it.'),
 ]
 
 STEPS = [
     ('Enquiry & planning', 'Tell us what you are shipping, where it is coming from and when it needs to arrive. We assess the transport options and confirm the route, carrier and cost.'),
-    ('Booking & documents', 'We book cargo space and prepare the paperwork — including the invoice, bill of lading, certificate of origin and packing list — before your goods move.'),
+    ('Booking & documents', 'We book cargo space and prepare the paperwork, including the invoice, bill of lading, certificate of origin and packing list, before your goods move.'),
     ('Customs clearance', 'We file the entry, process duties and taxes and work through the regulatory requirements until your cargo is released.'),
     ('Delivery & handover', 'We arrange warehousing where needed, transport your goods to the final address and confirm that everything has arrived as expected.'),
 ]
@@ -150,18 +150,18 @@ ADVANTAGE = [
     ('Local market knowledge', 'A deep understanding of Liberia’s logistics landscape, including its ports, transport routes and local procedures.'),
     ('Customs expertise', 'Practical experience with customs procedures, duties and the documentation required for each entry.'),
     ('Integrated across modes', 'Coordinated air, sea, road and rail transport to keep shipments moving smoothly between providers.'),
-    ('Complex operations, handled', 'Efficient handling of complicated logistics — bonded storage, cross-trade and multi-leg moves included.'),
+    ('Complex operations, handled', 'We handle complicated logistics efficiently, including bonded storage, cross trade and journeys with multiple transport legs.'),
 ]
 
 SEGMENTS = [
-    ('rocket', 'Startups & growing enterprises', 'Professional logistics support from your first shipment, without the need to build an in-house team.'),
+    ('rocket', 'Startups & growing enterprises', 'Professional logistics support from your first shipment, without the need to build an internal logistics team.'),
     ('building', 'Established companies', 'A dependable partner for regular volumes, recurring routes and complex operations.'),
     ('swap', 'Importers & exporters', 'Customs clearance, duties and documentation for both imports and exports.'),
     ('globe', 'NGOs & international organisations', 'Careful, compliant handling of programme supplies into and across Liberia.'),
 ]
 
 VALUES = [
-    ('star', 'Excellence', 'We deliver consistently high-quality service for every shipment we handle.'),
+    ('star', 'Excellence', 'We deliver consistently high quality service for every shipment we handle.'),
     ('handshake', 'Integrity', 'We operate with transparency and professionalism in both our pricing and our paperwork.'),
     ('clock', 'Reliability', 'We provide dependable, timely service to keep your plans on track.'),
 ]
@@ -170,7 +170,7 @@ VALUES = [
 # (value, label). The first one is shown as the large highlighted tile.
 STATS = [
     ('10+',  'Years of experience'),
-    ('98%',  'On-time delivery rate'),
+    ('98%',  'On time delivery rate'),
     ('15',   'Counties reached nationwide'),
     ('3',    'Major ports served'),
     ('500+', 'Shipments delivered'),
@@ -183,15 +183,15 @@ VISION = 'To become a leading logistics provider in Liberia and beyond, recognis
 
 FAQ = [
     ('What does Peak Logistics Services do?',
-     'We are a full-service logistics company based in Monrovia. We handle freight forwarding by air, sea, road and rail, customs brokerage, shipping documentation, supply chain management, specialised logistics such as bonded warehousing and cross-trade, and transportation across Liberia and beyond.'),
+     'We are a full service logistics company based in Monrovia. We handle freight forwarding by air, sea, road and rail, customs brokerage, shipping documentation, supply chain management, specialised logistics such as bonded warehousing and cross trade, and transportation across Liberia and beyond.'),
     ('Can you clear my goods through customs in Liberia?',
-     'Yes. Our customs brokerage service covers import and export documentation, duty and tax processing, and compliance with local and international regulations — we prepare and file the entry and follow it through until your cargo is released.'),
+     'Yes. Our customs brokerage service covers import and export documentation, duty and tax processing, and compliance with local and international regulations. We prepare and file the entry and follow it through until your cargo is released.'),
     ('Which documents will I need to ship my goods?',
      'Most shipments need a commercial invoice, a bill of lading (or air waybill), a certificate of origin and a packing list, though the exact set depends on the cargo and the route. We prepare, check and manage these for you as part of our documentation service.'),
     ('Do you offer warehousing?',
      'Yes. We offer warehousing, inventory control and distribution as part of our supply chain management services. We also provide bonded warehousing for goods held while duties are pending.'),
     ('Do you deliver outside Monrovia?',
-     'Yes. Our transportation services deliver cargo across Liberia and beyond, including last-mile delivery to the final address.'),
+     'Yes. Our transportation services deliver cargo across Liberia and beyond, including last mile delivery to the final address.'),
     ('Who do you work with?',
      'We work with businesses of all sizes, including startups, growing enterprises, established companies, importers and exporters, as well as NGOs and international organisations.'),
     ('How do I get a quote?',
@@ -296,7 +296,7 @@ def footer():
           <img src="assets/img/logo-mark.png" width="280" height="141" alt="" loading="lazy" decoding="async">
           <span class="brand__txt"><span class="brand__name"><b>PEAK</b> LOGISTICS</span><span class="brand__sub">Services · Liberia</span></span>
         </a>
-        <p>A full-service logistics company moving cargo by air, sea, road and rail — with customs and documentation handled end to end.</p>
+        <p>A full service logistics company moving cargo by air, sea, road and rail, with customs and documentation handled end to end.</p>
         <ul class="socials">
           <li><a href="{FB}" rel="noopener" aria-label="Peak Logistics Services on Facebook">{ico("facebook")}</a></li>
           <li><a href="{IG}" rel="noopener" aria-label="Peak Logistics Services on Instagram">{ico("instagram")}</a></li>
@@ -338,7 +338,7 @@ def footer():
   </div>
 </footer>
 <a class="wa-fab is-hidden" href="{WA}" rel="noopener" aria-label="Chat with Peak Logistics Services on WhatsApp">{ico("whatsapp")}<span>WhatsApp us</span></a>
-<script src="assets/js/main.js?v=20261018" defer></script>
+<script src="assets/js/main.js?v=20261018-copy" defer></script>
 </body>
 </html>
 '''
