@@ -212,9 +212,9 @@ def home():
       {tag("01", "Who we are")}
       <h2 class="statement rv" id="intro-h">A full-service logistics company for Liberia. We move goods by <em>air, sea, road and rail</em> — and handle the <span class="u">customs and paperwork</span> in between.</h2>
       <div class="pillars">
-        <div class="pillar rv"><p class="pillar__n">01 — EFFICIENCY</p><h3>The right route, first time</h3><p>We plan the mode, route and carrier around your budget and deadline, then coordinate every hand-off along the way.</p></div>
-        <div class="pillar rv" style="--rd:.08s"><p class="pillar__n">02 — COMPLIANCE</p><h3>Cleared, not held</h3><p>Customs regulations and documentation requirements met in full, so shipments clear without avoidable delays or penalties.</p></div>
-        <div class="pillar rv" style="--rd:.16s"><p class="pillar__n">03 — TIMELINESS</p><h3>One team, start to finish</h3><p>Cargo followed from origin to destination, with a single team accountable for getting it there on time.</p></div>
+        <div class="pillar rv"><p class="pillar__n">01 — EFFICIENCY</p><h3>The right route, first time</h3><p>We select the transport mode, route and carrier to suit your budget and deadline, then coordinate every handover along the way.</p></div>
+        <div class="pillar rv" style="--rd:.08s"><p class="pillar__n">02 — COMPLIANCE</p><h3>Cleared, not held</h3><p>We meet customs regulations and documentation requirements to help shipments clear without avoidable delays or penalties.</p></div>
+        <div class="pillar rv" style="--rd:.16s"><p class="pillar__n">03 — TIMELINESS</p><h3>One team, start to finish</h3><p>We follow your cargo from origin to destination, with one team responsible for getting it there on time.</p></div>
       </div>
       {stats()}
     </div>
@@ -223,8 +223,8 @@ def home():
   <section class="sec sec--white" id="services" aria-labelledby="svc-h">
     <div class="wrap">
       <div class="head head--split">
-        <div>{tag("02", "Services")}<h2 class="h2" id="svc-h">Everything between origin and your door.</h2></div>
-        <div><p class="lead">Six service lines covering the whole logistics value chain. Use one, or hand us the entire shipment.</p>
+        <div>{tag("02", "Services")}<h2 class="h2" id="svc-h">Everything from origin to your door.</h2></div>
+        <div><p class="lead">Our six service lines cover the entire logistics value chain. Choose an individual service or let us manage your shipment from start to finish.</p>
           <p style="margin-top:1.1rem"><a class="link-arrow" href="services.html">All service details {ico("arrow")}</a></p></div>
       </div>
 {svc_explorer()}
@@ -236,7 +236,7 @@ def home():
       <div>
         {tag("03", "Reach")}
         <h2 class="h2" id="reach-h">From the world’s trade hubs to <span class="gold">Liberia.</span></h2>
-        <p class="lead" style="margin-top:1.25rem">Global shipping support and shipment tracking until your cargo lands in Liberia — then onward delivery across Liberia and beyond.</p>
+        <p class="lead" style="margin-top:1.25rem">We provide global shipping support and shipment tracking until your cargo arrives in Liberia, then coordinate onward delivery across the country and beyond.</p>
       </div>
       <div class="hero__vis rv">
         <span class="hero__corner" aria-hidden="true"></span>
@@ -274,8 +274,8 @@ def home():
     <div class="wrap split">
       <div>
         {tag("05", "Customs &amp; documentation")}
-        <h2 class="h2" id="docs-h">Paperwork is where shipments stall. We make sure yours don’t.</h2>
-        <p class="lead" style="margin-top:1.25rem">Import and export documentation, duty and tax processing, and compliance with local and international law — prepared correctly the first time.</p>
+        <h2 class="h2" id="docs-h">Keep paperwork from delaying your shipment.</h2>
+        <p class="lead" style="margin-top:1.25rem">We prepare import and export documents, process duties and taxes, and manage compliance with local and international requirements.</p>
         {doclist()}
       </div>
 {docs_visual()}
@@ -291,7 +291,7 @@ def home():
       <div>
         {tag("06", "Why Peak")}
         <h2 class="h2" id="why-h">One partner instead of four.</h2>
-        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider we manage the complexity — so you can focus on your core business.</p>
+        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider, we manage the complexity so you can focus on your core business.</p>
         {adv_list()}
       </div>
     </div>
@@ -370,7 +370,7 @@ def services():
     body = f'''{header('services.html')}
 <main id="main">
 {phero('Services', 'Services', 'Logistics for the whole value chain.',
-       'Six service lines, four transport modes and one point of contact — from the first enquiry, through customs clearance, to the final delivery address.', jump,
+       'Six service lines, four transport modes and one point of contact — from your first enquiry through customs clearance to final delivery.', jump,
        photo='fleet', pos='62% 60%')}
   <section class="sec sec--white" aria-label="Service lines">
     <div class="wrap">
@@ -382,8 +382,8 @@ def services():
     <div class="wrap split">
       <div>
         {tag("", "Documentation")}
-        <h2 class="h2" id="docs-h">The paperwork, prepared once and prepared right.</h2>
-        <p class="lead" style="margin-top:1.25rem">Every consignment carries a paper trail. We prepare each document, check them against one another and manage them from booking to delivery.</p>
+        <h2 class="h2" id="docs-h">Your paperwork, prepared correctly.</h2>
+        <p class="lead" style="margin-top:1.25rem">Every consignment carries a paper trail. We prepare the documents, check them for consistency and manage them from booking to delivery.</p>
         {doclist()}
       </div>
 {docs_visual()}
@@ -430,7 +430,7 @@ def about():
       <div>
         {tag("01", "Introduction")}
         <h2 class="h2" id="intro-h">Cargo moves. Paperwork follows. We handle both.</h2>
-        <p class="lead" style="margin-top:1.25rem">We specialise in the seamless movement of goods by air, sea, road and rail, while ensuring full compliance with customs regulations and documentation requirements.</p>
+        <p class="lead" style="margin-top:1.25rem">We specialise in moving goods by air, sea, road and rail while ensuring full compliance with customs regulations and documentation requirements.</p>
         <p style="margin-top:1rem;color:var(--muted)">Our operations cover the entire logistics value chain — from freight coordination and customs clearance to warehousing and final delivery. By combining industry expertise with local market knowledge, we keep cargo flowing smoothly from origin to destination, prioritising efficiency, compliance and timeliness.</p>
         <div class="btns" style="margin-top:2rem">
           <a class="btn btn--green" href="{PDF}">{ico("download")} Company profile (PDF)</a>
@@ -459,7 +459,7 @@ def about():
       <div>
         {tag("04", "Strategic advantage")}
         <h2 class="h2" id="adv-h">Why clients consolidate with us.</h2>
-        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider, our approach lets clients focus on their core business while we manage the logistics complexities.</p>
+        <p class="lead" style="margin-top:1.25rem">As a one-stop logistics provider, we let clients focus on their core business while we manage the complexities of their logistics operations.</p>
       </div>
       {adv_list()}
     </div>
@@ -478,11 +478,11 @@ def about():
   <section class="sec sec--white" aria-labelledby="ahead-h">
     <div class="wrap">
       <div class="head">{tag("06", "Looking ahead")}<h2 class="h2" id="ahead-h">Expanding what we can carry for you.</h2>
-        <p class="lead">We are focused on expanding our service offerings and entering new markets — continuously innovating to deliver logistics that improve efficiency, reduce costs and raise client satisfaction.</p></div>
+        <p class="lead">We are focused on expanding our services and entering new markets, continuously improving our logistics solutions to increase efficiency, reduce costs and enhance client satisfaction.</p></div>
       <div class="ahead">
-        <div class="rv"><h3>New services</h3><p>Broadening what we offer, so more of your supply chain can sit with one trusted partner.</p></div>
-        <div class="rv" style="--rd:.08s"><h3>New markets</h3><p>Taking the standards we hold in Liberia further afield, alongside the clients who grow with us.</p></div>
-        <div class="rv" style="--rd:.16s"><h3>Continuous improvement</h3><p>Finding better ways to move cargo — faster, at lower cost and with fewer surprises.</p></div>
+        <div class="rv"><h3>New services</h3><p>We aim to broaden our services so you can entrust more of your supply chain to one partner.</p></div>
+        <div class="rv" style="--rd:.08s"><h3>New markets</h3><p>We aim to bring the standards we maintain in Liberia to new markets as our clients grow.</p></div>
+        <div class="rv" style="--rd:.16s"><h3>Continuous improvement</h3><p>We continue to find better ways to move cargo faster, at a lower cost and with fewer surprises.</p></div>
       </div>
       <div class="profile-card rv" style="margin-top:clamp(3rem,6vw,4.5rem)">
         <img class="profile-card__thumb" src="assets/img/company-flyer.jpg" width="820" height="1160" alt="" loading="lazy" decoding="async">
@@ -527,7 +527,7 @@ def contact():
         <div class="wiz__head">
           {tag("", "Request a quote")}
           <h2 class="h2" style="font-size:clamp(1.7rem,3vw,2.4rem)">Tell us about your shipment.</h2>
-          <p class="muted" style="margin-top:.75rem">Four short steps. Nothing is stored on this website — your request comes straight to us by WhatsApp or email.</p>
+          <p class="muted" style="margin-top:.75rem">Complete four short steps, then send your request through WhatsApp or your email app. Your shipment details are not stored on this website.</p>
           <ol class="wiz__steps" aria-label="Progress"><li>Service</li><li>Cargo</li><li>Contact</li><li>Send</li></ol>
         </div>
         <form id="quote-form" action="mailto:{EMAIL}?subject=Quote%20request" method="post" enctype="text/plain"
@@ -541,17 +541,17 @@ def contact():
           </fieldset>
 
           <fieldset data-step="2">
-            <legend>About the cargo<small>Rough figures are fine.</small></legend>
+            <legend>About your cargo<small>Approximate weights and quantities are fine.</small></legend>
             <div class="fields fields--2">
-              <div class="fld"><label class="lbl" for="origin">Collecting from{R}</label><input id="origin" name="origin" required placeholder="e.g. Shanghai, China" autocomplete="off"></div>
-              <div class="fld"><label class="lbl" for="destination">Delivering to{R}</label><input id="destination" name="destination" required placeholder="e.g. Monrovia, Liberia" autocomplete="off"></div>
+              <div class="fld"><label class="lbl" for="origin">Collection location{R}</label><input id="origin" name="origin" required placeholder="e.g. Shanghai, China" autocomplete="off"></div>
+              <div class="fld"><label class="lbl" for="destination">Delivery location{R}</label><input id="destination" name="destination" required placeholder="e.g. Monrovia, Liberia" autocomplete="off"></div>
             </div>
             <div class="fields" style="margin-top:1.1rem">
-              <div class="fld"><label class="lbl" for="cargo">What are you shipping?{R}</label><textarea id="cargo" name="cargo" required placeholder="e.g. Two 40ft containers of building materials"></textarea></div>
+              <div class="fld"><label class="lbl" for="cargo">What are you shipping?{R}</label><textarea id="cargo" name="cargo" required placeholder="e.g. two 40-foot containers of building materials"></textarea></div>
             </div>
             <div class="fields fields--2" style="margin-top:1.1rem">
-              <div class="fld"><label class="lbl" for="size">Weight or volume{O}</label><input id="size" name="size" placeholder="e.g. 18 tonnes, or 2 × 40ft"></div>
-              <div class="fld"><label class="lbl" for="ready">Ready to ship{O}</label><input id="ready" name="ready" type="date"></div>
+              <div class="fld"><label class="lbl" for="size">Weight or volume{O}</label><input id="size" name="size" placeholder="e.g. 18 tonnes or two 40-foot containers"></div>
+              <div class="fld"><label class="lbl" for="ready">Date ready to ship{O}</label><input id="ready" name="ready" type="date"></div>
             </div>
             <div class="wiz__nav">{backb}<div class="right">{nextb}</div></div>
           </fieldset>
@@ -564,7 +564,7 @@ def contact():
               <div class="fld"><label class="lbl" for="phone">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+231 …"></div>
               <div class="fld"><label class="lbl" for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
             </div>
-            <fieldset class="grp" style="margin-top:1.6rem"><legend>Reply by</legend><div class="chips">{reply}</div></fieldset>
+            <fieldset class="grp" style="margin-top:1.6rem"><legend>Preferred contact method</legend><div class="chips">{reply}</div></fieldset>
             <div class="wiz__nav">{backb}<div class="right"><button class="btn btn--green jsonly" type="button" data-go="next">Review request {ico("arrow", "arr")}</button></div></div>
             <div class="nojs-only" style="margin-top:2rem">
               <button class="btn btn--green" type="submit">{ico("mail")} Send by email</button>
@@ -573,7 +573,7 @@ def contact():
           </fieldset>
 
           <fieldset data-step="review" hidden>
-            <legend>Check and send<small>Both options open with your request already written — just press send.</small></legend>
+            <legend>Review and send<small>Choose WhatsApp or email to open your prepared request, then press Send in the app.</small></legend>
             <dl class="review" id="review"></dl>
             <div class="send">
               <button class="btn btn--wa btn--block" type="button" data-go="wa">{ico("whatsapp")} Send via WhatsApp</button>
@@ -598,13 +598,13 @@ def contact():
           </ul>
         </div>
         <div class="card-light">
-          <h2>Have these to hand</h2>
-          <p>A quote comes back faster when we know:</p>
+          <h2>Have these details ready</h2>
+          <p>We can prepare your quote faster if you provide:</p>
           <ul class="checks" style="margin-top:1rem;font-size:.95rem">
-            <li>{ico("check")}<span>What the goods are, and roughly how much</span></li>
-            <li>{ico("check")}<span>Where they are collected and delivered</span></li>
-            <li>{ico("check")}<span>When they need to arrive</span></li>
-            <li>{ico("check")}<span>Any documents you already hold — invoice, packing list</span></li>
+            <li>{ico("check")}<span>A description of the goods and their approximate quantity</span></li>
+            <li>{ico("check")}<span>The collection and delivery locations</span></li>
+            <li>{ico("check")}<span>The required arrival date</span></li>
+            <li>{ico("check")}<span>Any available documents, such as an invoice or packing list</span></li>
           </ul>
         </div>
       </aside>
@@ -646,7 +646,7 @@ def notfound():
       <div>
         <p class="nf__code" aria-hidden="true">404</p>
         <h1 class="h1">Wrong turn.</h1>
-        <p class="lead">This page has gone off route — it does not exist or has moved. Let us get you back on the road.</p>
+        <p class="lead">The page you are looking for has moved or does not exist. Let us help you find your way.</p>
         <div class="btns">
           <a class="btn btn--gold" href="index.html">Back to home {ico("arrow", "arr")}</a>
           <a class="btn btn--line-dark" href="contact.html#quote">Request a quote</a>
