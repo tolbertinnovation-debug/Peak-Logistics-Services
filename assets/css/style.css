@@ -1405,7 +1405,7 @@ h1, h2, h3 { overflow-wrap: break-word; }
 
 .hero--art { padding-bottom: clamp(3.5rem, 6vw, 5rem); }
 .hero--art::before { display: block; opacity: .55; }
-.hero--art .hero__inner { gap: clamp(2rem, 4.5vw, 4.5rem); }
+.hero--art .hero__inner { display: grid; gap: clamp(2rem, 4.5vw, 4.5rem); }
 .freight-art {
   position: relative; isolation: isolate; min-width: 0; margin: 0;
   padding: .65rem; border: 1px solid rgba(245, 197, 24, .48); border-radius: 26px;
