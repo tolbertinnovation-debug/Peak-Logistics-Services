@@ -34,12 +34,24 @@
       nav.classList.toggle('is-open', open);
       doc.body.classList.toggle('nav-open', open);
       behind.forEach(function (el) { el.inert = open; });
+      if (open && hdr) nav.style.top = Math.max(0, hdr.getBoundingClientRect().bottom) + 'px';
       syncHeader();
     };
     burger.addEventListener('click', function () { setMenu(burger.getAttribute('aria-expanded') !== 'true'); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     doc.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); }
+      if (e.key === 'Tab' && menuOpen) {
+        var links = $$('a[href], button:not([disabled])', hdr).filter(function (el) {
+          return el.getClientRects().length > 0;
+        });
+        var first = links[0], last = links[links.length - 1];
+        if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (menuOpen && hdr) nav.style.top = Math.max(0, hdr.getBoundingClientRect().bottom) + 'px';
     });
     var wide = window.matchMedia('(min-width: 901px)');
     var reset = function (m) { if (m.matches) setMenu(false); };

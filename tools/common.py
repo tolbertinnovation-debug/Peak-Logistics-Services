@@ -231,7 +231,7 @@ def head(title, desc, path, jsonld=(), noindex=False):
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20261018">
 <script>document.documentElement.classList.add('js');</script>
 {ld}</head>
 <body>
@@ -332,7 +332,7 @@ def footer():
   </div>
 </footer>
 <a class="wa-fab is-hidden" href="{WA}" rel="noopener" aria-label="Chat with Peak Logistics Services on WhatsApp">{ico("whatsapp")}<span>WhatsApp us</span></a>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20261018" defer></script>
 </body>
 </html>
 '''
