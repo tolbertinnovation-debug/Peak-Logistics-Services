@@ -4,7 +4,7 @@
 Edit the contact details, services, FAQ and other copy here, then run
 `python3 tools/build.py` from the repository root to regenerate the HTML.
 """
-import json, html, os
+import json, html, os, re
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..') + os.sep
 SITE = 'https://peaklogisticsservices.com'
@@ -195,17 +195,22 @@ FAQ = [
     ('Who do you work with?',
      'We work with businesses of all sizes, including startups, growing enterprises, established companies, importers and exporters, as well as NGOs and international organisations.'),
     ('How do I get a quote?',
-     'Use the quote form on our <a href="contact.html">contact page</a>, message us on WhatsApp, or call +231 886 826 289. Tell us what you are shipping, where it is coming from and going to, and when it needs to arrive.'),
+     'Use the quote form on our <a href="contact/">contact page</a>, message us on WhatsApp, or call +231 886 826 289. Tell us what you are shipping, where it is coming from and going to, and when it needs to arrive.'),
     ('Where is your office?',
      'Our office is opposite the Freeport of Monrovia, behind the CONEX gas station on Bushrod Island, Monrovia.'),
 ]
 
 NAV = [('index.html', 'Home'), ('services.html', 'Services'), ('about.html', 'About'), ('contact.html', 'Contact')]
+CLEAN_ROUTES = {'index.html': '', 'services.html': 'services/',
+                'about.html': 'about/', 'contact.html': 'contact/'}
+
+def public_path(path):
+    return CLEAN_ROUTES.get(path, path)
 
 # ------------------------------------------------------------------ chrome
 
 def head(title, desc, path, jsonld=(), noindex=False):
-    canon = SITE + '/' if path == 'index.html' else f'{SITE}/{path}'
+    canon = f'{SITE}/{public_path(path)}'
     ld = ''.join(f'<script type="application/ld+json">\n{json.dumps(x, ensure_ascii=False, indent=1)}\n</script>\n' for x in jsonld)
     robots = '<meta name="robots" content="noindex">\n' if noindex else ''
     return f'''<!DOCTYPE html>
@@ -403,9 +408,58 @@ def business_ld():
 def crumbs_ld(name, path):
     return {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
         {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'},
-        {'@type': 'ListItem', 'position': 2, 'name': name, 'item': f'{SITE}/{path}'}]}
+        {'@type': 'ListItem', 'position': 2, 'name': name, 'item': f'{SITE}/{public_path(path)}'}]}
 
 def write(path, text):
-    with open(ROOT + path, 'w', encoding='utf-8') as f:
+    """Publish directory URLs and retain redirects for existing .html bookmarks."""
+    route = public_path(path)
+    nested = bool(route and path in CLEAN_ROUTES)
+    prefix = '../' if nested else ''
+
+    def local_url(url):
+        for old, clean in CLEAN_ROUTES.items():
+            if url == old or url.startswith(old + '?') or url.startswith(old + '#'):
+                return (prefix + clean or './') + url[len(old):]
+        for clean in ('services/', 'about/', 'contact/'):
+            if url.startswith(clean):
+                return prefix + url
+        if url.startswith('assets/') or url == 'favicon.ico':
+            return prefix + url
+        return url
+
+    def attribute(match):
+        key, value = match.group(1), match.group(2)
+        if key == 'srcset':
+            value = ', '.join(local_url(part.strip().split(' ', 1)[0]) +
+                              (' ' + part.strip().split(' ', 1)[1] if ' ' in part.strip() else '')
+                              for part in value.split(','))
+        else:
+            value = local_url(value)
+        return f'{key}="{value}"'
+
+    text = re.sub(r'\b(href|src|srcset)="([^\"]*)"', attribute, text)
+    # Keep absolute URLs in metadata and structured data on the same clean routes.
+    for old, clean in CLEAN_ROUTES.items():
+        text = text.replace(SITE + '/' + old, SITE + '/' + clean)
+    target = route + 'index.html' if nested else path
+    os.makedirs(os.path.dirname(ROOT + target), exist_ok=True)
+    with open(ROOT + target, 'w', encoding='utf-8') as f:
         f.write(text)
-    print(f'wrote {path:14} {len(text):>7,} bytes')
+    print(f'wrote {target:22} {len(text):>7,} bytes')
+
+    if nested:
+        redirect = f'''<!DOCTYPE html>
+<html lang="en-LR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page moved | Peak Logistics Services</title>
+<link rel="canonical" href="{SITE}/{route}">
+<script>window.location.replace({json.dumps(route)} + window.location.search + window.location.hash);</script>
+<noscript><meta http-equiv="refresh" content="0; url={route}"></noscript>
+</head>
+<body><p>This page has moved. <a href="{route}">Continue to Peak Logistics Services</a>.</p></body>
+</html>
+'''
+        with open(ROOT + path, 'w', encoding='utf-8') as f:
+            f.write(redirect)

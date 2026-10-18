@@ -14,10 +14,17 @@ on-time rate, shipments and so on) were supplied by the company.
 | Page | What's on it |
 | --- | --- |
 | `index.html` | Hero with a shipment walkthrough, interactive services explorer, world route map converging on Monrovia, the scroll-driven journey road, customs & documentation, why Peak, who we serve, mission & vision, FAQ |
-| `services.html` | Each of the six service lines in full, documentation, transport modes, how a shipment is handled |
-| `about.html` | Introduction, mission, vision, core values, strategic advantage, target market, looking ahead, company profile download |
-| `contact.html` | Four-step quote request (sent by WhatsApp or email), direct contact details, map |
+| `services/index.html` (`/services/`) | Each of the six service lines in full, documentation, transport modes, how a shipment is handled |
+| `about/index.html` (`/about/`) | Introduction, mission, vision, core values, strategic advantage, target market, looking ahead, company profile download |
+| `contact/index.html` (`/contact/`) | Four-step quote request (sent by WhatsApp or email), direct contact details, map |
 | `404.html` | Not-found page |
+
+The old `services.html`, `about.html` and `contact.html` addresses redirect to the
+clean directory URLs. With JavaScript enabled, redirects preserve query parameters
+and anchors, including service selections and the quote form. Without JavaScript,
+the redirect opens the new page without those URL details. Internal links, canonical
+URLs, breadcrumbs and the sitemap use clean routes. The generator adjusts relative
+asset paths for each directory; no hosting rewrite configuration is needed.
 
 ## Previewing it
 
