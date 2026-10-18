@@ -157,7 +157,7 @@ elsewhere.
 ├── assets/
 │   ├── css/style.css       design system — tokens at the top
 │   ├── js/main.js          menu, services explorer, route map, journey road, quote form
-│   ├── fonts/              Archivo and JetBrains Mono, self-hosted (SIL OFL)
+│   ├── fonts/              Five complementary font families, self-hosted (SIL OFL)
 │   ├── img/                logo, world map, share card, icons
 │   │   └── photos/         generated photo sizes (WebP + JPEG)
 │   └── docs/               company profile PDF
@@ -190,9 +190,13 @@ elsewhere.
 
 ## Credits
 
-- Typefaces: [Archivo](https://github.com/Omnibus-Type/Archivo) and
-  [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), SIL Open Font License —
-  see `assets/fonts/`.
+- Typefaces: Archivo for section headings, navigation and controls; Manrope for
+  reading text; Barlow Condensed for display headlines; Fraunces italic for
+  editorial accents and mission statements; JetBrains Mono for technical labels.
+  The new Latin-subset WOFF2 files are distributed by Fontsource; all five families
+  are self-hosted under the SIL Open Font License. See the `OFL-*.txt` notices in
+  `assets/fonts/`. Only Archivo and Barlow Condensed are preloaded; other fonts
+  load on demand with `font-display: swap` and system fallbacks.
 - World map: [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via
   `world-atlas`.
 - Contact-page map tiles © [OpenStreetMap](https://www.openstreetmap.org/copyright)

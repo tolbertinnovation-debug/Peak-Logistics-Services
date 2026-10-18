@@ -231,7 +231,8 @@ def head(title, desc, path, jsonld=(), noindex=False):
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=20261018">
+<link rel="preload" href="assets/fonts/barlow-condensed-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=20261018-fonts">
 <script>document.documentElement.classList.add('js');</script>
 {ld}</head>
 <body>
