@@ -232,7 +232,7 @@ def head(title, desc, path, jsonld=(), noindex=False):
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=20261018-fonts">
+<link rel="stylesheet" href="assets/css/style.css?v=20261018-metal">
 <script>document.documentElement.classList.add('js');</script>
 {ld}</head>
 <body>
@@ -341,6 +341,15 @@ def footer():
 def tag(n, label):
     return f'<p class="tag"><b>[{n}]</b> {label}</p>' if n else f'<p class="tag">{label}</p>'
 
+def metal(text, finish='silver'):
+    """Live heading text with an ornamental, screen-reader-hidden depth layer."""
+    if finish not in ('silver', 'gold', 'emerald'):
+        raise ValueError('Unknown metallic finish')
+    text = html.escape(text)
+    return (f'<span class="metal metal--{finish}">'
+            f'<span class="metal__depth" aria-hidden="true">{text}</span>'
+            f'<span class="metal__face">{text}</span></span>')
+
 def phero(crumb, t, title, lead, extra='', photo=None, pos='70% 50%'):
     bg = (f'\n    <div class="phero__bg" style="--pos:{pos}" aria-hidden="true">{pic(photo, "", "100vw", eager=True)}</div>'
           if photo else '')
@@ -348,7 +357,7 @@ def phero(crumb, t, title, lead, extra='', photo=None, pos='70% 50%'):
     return f'''  <section class="{cls}">{bg}
     <div class="wrap">
       <ol class="crumbs"><li><a href="index.html">Home</a></li><li aria-current="page">{crumb}</li></ol>
-      <h1 class="h1">{title}</h1>
+      <h1 class="h1">{metal(title)}</h1>
       <p class="lead">{lead}</p>{extra}
     </div>
   </section>
@@ -360,7 +369,7 @@ def cta_block():
       <div class="cta on-dark rv">
         <div>
           {tag("", "Get in touch")}
-          <h2 class="h2">Ready when your cargo is.</h2>
+          <h2 class="h2">{metal('Ready when your cargo is.', 'gold')}</h2>
           <p class="lead">Tell us what you are shipping and where it needs to go. We will provide a proposed route, a list of required documents and a quote.</p>
         </div>
         <div class="channels">

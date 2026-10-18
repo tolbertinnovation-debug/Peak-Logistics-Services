@@ -933,8 +933,8 @@ body.nav-open { overflow: hidden; }
   display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center;
   font-size: clamp(1.9rem, 5vw, 3.6rem); font-weight: 780; font-stretch: 118%; letter-spacing: -.035em; line-height: 1;
 }
-.words span:nth-child(even) { width: .35em; height: .35em; border-radius: 50%; background: var(--gold-hi); }
-.words span.o { color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .55); }
+.words > span:nth-child(even) { width: .35em; height: .35em; border-radius: 50%; background: var(--gold-hi); }
+.words > span.o { color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .55); }
 
 /* -------------------------------------------------------------------- FAQ */
 
@@ -1319,12 +1319,95 @@ h1, h2, h3 { overflow-wrap: break-word; }
   .mv p.mv__q { line-height: 1.45; }
 }
 
+/* ----------------------------------------------- Sculpted metal lettering */
+
+/* Real, selectable text. The second layer supplies extrusion, never content. */
+.metal {
+  --metal-fill: linear-gradient(180deg,
+    #fff 0%, #f9fffc 18%, #dae5df 42%, #fff 48%, #b1c4b9 51%, #e7f1eb 76%, #fff 100%);
+  --metal-edge: #658b76;
+  --metal-side: #1c573b;
+  --metal-low: #0a2e1c;
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  isolation: isolate;
+  max-width: 100%;
+  vertical-align: baseline;
+  color: #f1f7f3;
+  text-shadow: none;
+}
+.metal--gold {
+  --metal-fill: linear-gradient(180deg,
+    #fffbd9 0%, #fff1a3 14%, #ffdc51 35%, #fff6be 45%, #dca426 49%, #f3bc2d 68%, #ffe795 88%, #fff6c9 100%);
+  --metal-edge: #f7d677;
+  --metal-side: #a36a11;
+  --metal-low: #5d3508;
+  color: var(--gold-hi);
+}
+.metal--emerald {
+  --metal-fill: linear-gradient(180deg,
+    #edfff4 0%, #b8f4ce 22%, #64c894 41%, #e0ffed 48%, #479a70 52%, #8fdfb2 77%, #d7ffe7 100%);
+  --metal-edge: #75c99a;
+  --metal-side: #266b49;
+  --metal-low: #0b3220;
+  color: var(--mint);
+}
+.metal__face { grid-area: 1 / 1; position: relative; z-index: 1; min-width: 0; }
+.metal__depth { display: none; }
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .metal__face {
+    background: var(--metal-fill);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: .45px var(--metal-edge);
+    paint-order: stroke fill;
+  }
+  .metal__depth {
+    display: block; grid-area: 1 / 1; min-width: 0;
+    color: var(--metal-side);
+    -webkit-text-stroke: .6px var(--metal-side);
+    text-shadow:
+      1px 1px 0 var(--metal-edge),
+      2px 2px 0 var(--metal-side),
+      3px 3px 0 var(--metal-side),
+      4px 4px 0 var(--metal-low),
+      5px 5px 0 var(--metal-low),
+      6px 8px 10px rgba(0, 0, 0, .42);
+    pointer-events: none; user-select: none;
+  }
+}
+.hero h1, .phero h1 { padding-bottom: .12em; }
+.hero h1 .gold { margin-top: .32em; padding-right: .1em; }
+.hero h1 > .metal { letter-spacing: .005em; }
+.words { gap: .6rem 1.5rem; }
+.words > .metal { padding-bottom: .12em; }
+.cta h2 { line-height: 1.18; }
+/* A restrained embossed finish keeps smaller section titles crisp. */
+.sec--white .h2, .sec--paper .h2, .svc-row h2 {
+  text-shadow: 0 1px 0 #fff, 0 2px 0 rgba(10, 42, 29, .1);
+}
+.sec--dark .h2, .sec--forest .h2 {
+  text-shadow: 0 1px 0 #1e5137, 0 3px 5px rgba(0, 0, 0, .3);
+}
+@media (max-width: 560px) {
+  .metal__depth { text-shadow: 1px 1px 0 var(--metal-edge), 2px 2px 0 var(--metal-side), 3px 3px 0 var(--metal-low), 4px 5px 6px rgba(0, 0, 0, .35); }
+  .words { gap: .75rem 1rem; }
+}
+@media (forced-colors: active), print {
+  .metal, .metal__face { background: none; color: inherit; -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; text-shadow: none; }
+  .metal__depth { display: none; }
+}
+
 /* -------------------------------------------------------------- Print */
 
 @media print {
   .util, .hdr, .wa-fab, .ticker, .btns, .ftr__big, .netmap { display: none !important; }
   body, .sec--dark, .sec--forest, .hero, .phero { background: #fff !important; color: #000 !important; }
   h1, h2, h3 { color: #000 !important; }
+  .metal, .metal__face { color: #000 !important; -webkit-text-fill-color: #000; }
 }
 
 /* ------------------------------------------------------ Services page */

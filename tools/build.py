@@ -192,7 +192,7 @@ def home():
     <div class="wrap hero__inner">
       <div class="hero__copy">
         <p class="pill"><span class="pulse"></span>Opposite the Freeport of Monrovia</p>
-        <h1 class="h-display">Your cargo. <span class="gold">Our commitment.</span></h1>
+        <h1 class="h-display">{metal('Your cargo.')} <span class="gold">{metal('Our commitment.', 'gold')}</span></h1>
         <p class="hero__lead">Freight forwarding, customs clearing and supply chain management for businesses in Liberia — by air, sea, road and rail, with every document handled end to end.</p>
         <div class="btns">
           <a class="btn btn--gold" href="contact.html#quote">Get a quote {ico("arrow", "arr")}</a>
@@ -311,7 +311,7 @@ def home():
     <div class="wrap">
       <h2 class="visually-hidden" id="mv-h">Mission and vision</h2>
 {mv()}
-      <p class="words rv" style="margin-top:clamp(2.5rem,5vw,4rem)" aria-label="Trusted, reliable, professional"><span>Trusted</span><span></span><span class="o">Reliable</span><span></span><span>Professional</span></p>
+      <p class="words rv" style="margin-top:clamp(2.5rem,5vw,4rem)" aria-label="Trusted, reliable, professional">{metal('Trusted', 'gold')}<span aria-hidden="true"></span>{metal('Reliable', 'silver')}<span aria-hidden="true"></span>{metal('Professional', 'emerald')}</p>
     </div>
   </section>
 
@@ -450,7 +450,7 @@ def about():
 {mv()}
       <div class="head" id="values" style="margin-top:clamp(4rem,8vw,6rem)">{tag("03", "Core values")}<h2 class="h2">What we hold ourselves to.</h2></div>
       {values()}
-      <p class="words rv" style="margin-top:clamp(3rem,6vw,4.5rem)" aria-label="Trusted, reliable, professional"><span>Trusted</span><span></span><span class="o">Reliable</span><span></span><span>Professional</span></p>
+      <p class="words rv" style="margin-top:clamp(3rem,6vw,4.5rem)" aria-label="Trusted, reliable, professional">{metal('Trusted', 'gold')}<span aria-hidden="true"></span>{metal('Reliable', 'silver')}<span aria-hidden="true"></span>{metal('Professional', 'emerald')}</p>
     </div>
   </section>
 
