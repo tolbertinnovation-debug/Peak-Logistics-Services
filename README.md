@@ -197,6 +197,13 @@ elsewhere.
 
 ## Credits
 
+- Reference artwork supplied by the site owner is stored unchanged in
+  `assets/img/art/`: `transport-network.jpg` (1000151552),
+  `ocean-freight.jpg` (1000151547), `global-air.jpg` (1000151544), and
+  `africa-network.jpg` (1000151543). These images illustrate transport concepts
+  and are not presented as photographs of company assets. `ARTWORKS` in
+  `tools/common.py` records the original dimensions. The route map remains on
+  the homepage below the transport modes.
 - Typefaces: Archivo for section headings, navigation and controls; Manrope for
   reading text; Barlow Condensed for display headlines; Fraunces italic for
   editorial accents and mission statements; JetBrains Mono for technical labels.

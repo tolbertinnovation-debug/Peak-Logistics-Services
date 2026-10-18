@@ -38,9 +38,21 @@ ADDR_HTML = '<br>'.join(ADDR_LINES)
 PDF = 'assets/docs/Peak-Logistics-Services-Company-Profile.pdf'
 
 PHOTOS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'photos.json')))
+ARTWORKS = {
+    'art-transport': ('transport-network', 1536, 1118),
+    'art-ocean': ('ocean-freight', 1076, 1536),
+    'art-air': ('global-air', 1024, 1536),
+    'art-africa': ('africa-network', 1024, 1536),
+}
 
 def pic(name, alt, sizes, cls='', eager=False):
     """<picture> with WebP and a JPEG fallback at every width in tools/photos.json."""
+    if name in ARTWORKS:
+        file, w, h = ARTWORKS[name]
+        load = ' fetchpriority="high"' if eager else ' loading="lazy"'
+        c = f' class="{cls}"' if cls else ''
+        return (f'<img{c} src="assets/img/art/{file}.jpg" width="{w}" height="{h}" '
+                f'alt="{html.escape(alt, quote=True)}"{load} decoding="async">')
     v = PHOTOS[name]
     src = lambda ext: ', '.join(f'assets/img/photos/{name}-{w}.{ext} {w}w' for w, h in v)
     w, h = v[-1]
@@ -237,7 +249,7 @@ def head(title, desc, path, jsonld=(), noindex=False):
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=20261018-metal">
+<link rel="stylesheet" href="assets/css/style.css?v=20261018-art">
 <script>document.documentElement.classList.add('js');</script>
 {ld}</head>
 <body>

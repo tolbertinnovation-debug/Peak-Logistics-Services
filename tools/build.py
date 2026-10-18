@@ -188,7 +188,7 @@ def home():
     body = f'''{header('index.html')}
 <main id="main">
 
-  <section class="hero hero--map">
+  <section class="hero hero--map hero--art">
     <div class="wrap hero__inner">
       <div class="hero__copy">
         <p class="pill"><span class="pulse"></span>Opposite the Freeport of Monrovia</p>
@@ -200,9 +200,12 @@ def home():
         </div>
         <ul class="modes" aria-label="Transport modes">{modes}</ul>
       </div>
-      <div class="hero__map">
-{netmap(hero=True)}
-      </div>
+      <figure class="freight-art">
+        <div class="freight-art__label">{ico('globe')} Connected by every mode</div>
+        <div class="freight-art__image">{pic('art-transport', 'A transport montage combining a container ship, aircraft, truck and train.', '100vw', eager=True)}</div>
+        <figcaption class="freight-art__caption"><span>Air · Sea · Road · Rail</span><b>One partner. Every journey.</b></figcaption>
+        <span class="freight-art__seal" aria-hidden="true">{ico('shield')}<span>PEAK<br>LOGISTICS</span></span>
+      </figure>
     </div>
   </section>
 
@@ -241,7 +244,7 @@ def home():
       <div class="hero__vis rv">
         <span class="hero__corner" aria-hidden="true"></span>
         <div class="hero__photo">
-          {pic("port-crane-tall", "A gantry crane lifts a blue container from a berthed ship while a port worker in a hard hat watches from the quay.", "(min-width: 960px) 44vw, 100vw")}
+          {pic("art-ocean", "A container ship moves across the ocean, leaving a sweeping wake behind it.", "(min-width: 960px) 44vw, 100vw")}
           <p class="hero__badge"><b>●</b> Air · Sea · Road · Rail</p>
         </div>
         <div class="journey-card" aria-label="How a shipment moves with us">
@@ -257,6 +260,10 @@ def home():
     </div>
     <div class="wrap">
       {modegrid()}
+      <div class="trade-atlas">
+        <div class="trade-atlas__head"><span>{ico('globe')} Global connections</span><p>Trade routes to Monrovia</p></div>
+{netmap(hero=True)}
+      </div>
     </div>
   </section>
 
@@ -371,7 +378,7 @@ def services():
 <main id="main">
 {phero('Services', 'Services', 'Logistics for the whole value chain.',
        'Six service lines, four transport modes and one point of contact, from your first enquiry through customs clearance to final delivery.', jump,
-       photo='fleet', pos='62% 60%')}
+       photo='art-ocean', pos='72% 65%')}
   <section class="sec sec--white" aria-label="Service lines">
     <div class="wrap">
 {chr(10).join(rows)}
@@ -424,7 +431,7 @@ def about():
 <main id="main">
 {phero('About', 'About us', 'Reaching new heights in Liberia.',
        'Peak Logistics Services is a full service logistics company committed to delivering efficient, reliable and client focused solutions across Liberia.',
-       photo='highway-truck', pos='70% 55%')}
+       photo='art-transport', pos='70% 55%')}
   <section class="sec sec--white" aria-labelledby="intro-h">
     <div class="wrap split">
       <div>
@@ -437,9 +444,9 @@ def about():
           <a class="btn btn--line" href="services.html">Our services {ico("arrow", "arr")}</a>
         </div>
       </div>
-      <div class="frame frame--tall rv">
-        {pic("warehouse-team-tall", "Three warehouse staff in hard hats review a consignment on a tablet and clipboard beside racked pallets.", "(min-width: 960px) 44vw, 100vw")}
-        <p class="frame__cap">Freight · Customs · Warehousing <span>Monrovia</span></p>
+      <div class="frame frame--tall frame--art rv">
+        {pic("art-africa", "An illustration of African trade connections, with ships, aircraft, trucks and glowing routes.", "(min-width: 960px) 44vw, 100vw")}
+        <p class="frame__cap">Connected across Africa <span>Transport illustration</span></p>
       </div>
     </div>
   </section>
@@ -519,7 +526,7 @@ def contact():
 <main id="main">
 {phero('Contact', 'Contact', 'Let’s move your cargo.',
        'Send the details through the quote form, or reach us directly on WhatsApp, by phone or by email. Our office is opposite the Freeport of Monrovia.',
-       photo='gate-check', pos='64% 50%')}
+       photo='art-air', pos='75% 48%')}
   <section class="sec sec--paper">
     <div class="wrap contact-grid">
 
