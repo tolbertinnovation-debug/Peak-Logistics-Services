@@ -29,7 +29,7 @@ if EMAIL not in [e for _, e in EMAILS]:
 def email_link(addr):
     # <wbr> lets a long address break before the @ on narrow screens instead of mid-word.
     return f'<a href="mailto:{addr}">{addr.replace("@", "<wbr>@")}</a>'
-FB = 'https://www.facebook.com/peaklogisticsservices'
+FB = 'https://www.facebook.com/share/1E6HSAxa1M/'
 IG = 'https://www.instagram.com/peaklogisticsservices'
 TAGLINE = 'Your Cargo, Our Commitment. Reaching New Heights in Liberia.'
 ADDR_LINES = ['Opposite the Freeport of Monrovia', 'Behind the CONEX gas station',
