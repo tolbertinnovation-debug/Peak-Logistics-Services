@@ -1536,3 +1536,33 @@ h1, h2, h3 { overflow-wrap: break-word; }
 }
 
 .profile-card__thumb { width: 76px; border-radius: 8px; box-shadow: var(--sh-2); }
+
+/* Readable copyright and separate developer credit across all pages. */
+.ftr__bottom {
+  align-items: center;
+  gap: 1.5rem 2rem;
+  padding-block: 2rem;
+  border-top-color: rgba(255, 255, 255, .24);
+}
+.ftr__legal { flex: 1 1 24rem; min-width: 0; }
+.ftr__copyright {
+  margin: 0;
+  color: #eef4f0;
+  font-family: var(--body);
+  font-size: clamp(1rem, .95rem + .25vw, 1.125rem);
+  line-height: 1.75;
+}
+.ftr__copyright strong { font-weight: 750; }
+.ftr__copyright > span:last-child { display: inline-block; }
+.ftr__bottom .ftr__credit {
+  margin: .5rem 0 0;
+  color: #c4d6cb;
+  font-size: .9375rem;
+  line-height: 1.7;
+}
+.ftr__bottom .tagline { flex: 0 1 23rem; margin: 0; }
+@media (max-width: 640px) {
+  .ftr__bottom { flex-direction: column; align-items: flex-start; padding-block: 1.5rem; }
+  .ftr__legal, .ftr__bottom .tagline { flex: none; width: 100%; }
+  .ftr__copyright > span:last-child { display: block; }
+}

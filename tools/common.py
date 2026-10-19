@@ -249,7 +249,7 @@ def head(title, desc, path, jsonld=(), noindex=False):
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=20261018-art">
+<link rel="stylesheet" href="assets/css/style.css?v=20261019-footer">
 <script>document.documentElement.classList.add('js');</script>
 {ld}</head>
 <body>
@@ -337,14 +337,17 @@ def footer():
         <address>{ADDR_HTML}</address>
         <ul style="margin-top:1.1rem">
           <li><a href="tel:{TEL}">{TEL_H}</a></li>
-{chr(10).join(f'          <li class="ftr__email">{email_link(e)}</li>' for _, e in EMAILS)}
+{chr(10).join(f'          <li class="ftr__email">{email_link(e)}</li>' for e in ('Info@peaklogisticsservices.com', EMAIL))}
           <li><a href="{IG}" rel="noopener">@peaklogisticsservices</a></li>
         </ul>
       </div>
     </div>
     <svg class="ftr__big" viewBox="0 0 1962 128" aria-hidden="true" focusable="false"><text x="2" y="122" textLength="1958" lengthAdjust="spacingAndGlyphs"><tspan>PEAK</tspan> LOGISTICS SERVICES</text></svg>
     <div class="ftr__bottom">
-      <p>&copy; <span data-year>2026</span> Peak Logistics Services. All rights reserved. <span class="ftr__credit">Powered by <a href="https://tolbertinnovationhub.org" rel="noopener">Tolbert Innovation Hub</a>.</span></p>
+      <div class="ftr__legal">
+        <p class="ftr__copyright">&copy; <span data-year>2026</span> <strong>Peak Logistics Services.</strong> <span>All rights reserved.</span></p>
+        <p class="ftr__credit">Powered by <a href="https://tolbertinnovationhub.org" rel="noopener">Tolbert Innovation Hub</a>.</p>
+      </div>
       <p class="tagline">{TAGLINE}</p>
     </div>
   </div>
