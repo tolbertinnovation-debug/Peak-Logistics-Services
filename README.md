@@ -83,7 +83,7 @@ then run the build.
    in `robots.txt` and `sitemap.xml`, and rebuild.
 
 2. **Switch email over once the company mailboxes work.** The site lists
-   Info@, CEO@ and Jallabah.JamesK@peaklogisticsservices.com, but those addresses can
+   Info@peaklogisticsservices.com and peaklogisticsservices@gmail.com. The Info address can
    only receive mail after the domain is registered and email hosting is set up for it
    (for example Google Workspace, Zoho Mail or your registrar's email). Until then the
    quote form, the email buttons and the top bar send to the Gmail address, which is

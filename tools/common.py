@@ -20,8 +20,6 @@ EMAIL_WBR = 'peaklogisticsservices<wbr>@gmail.com'   # display only: breaks clea
 # Company email addresses, listed on the contact page and in every page footer.
 EMAILS = [
     ('General enquiries',       'Info@peaklogisticsservices.com'),
-    ('Chief Executive Officer', 'CEO@peaklogisticsservices.com'),
-    ('James K. Jallabah',       'Jallabah.JamesK@peaklogisticsservices.com'),
 ]
 if EMAIL not in [e for _, e in EMAILS]:
     EMAILS.append(('Gmail', EMAIL))
